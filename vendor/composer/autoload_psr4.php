@@ -30,6 +30,7 @@ return array(
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'Laraveles\\Spanish\\' => array($vendorDir . '/laraveles/spanish/src'),
     'Laravel\\Tinker\\' => array($vendorDir . '/laravel/tinker/src'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'FontLib\\' => array($vendorDir . '/phenx/php-font-lib/src/FontLib'),

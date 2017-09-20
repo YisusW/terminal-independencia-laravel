@@ -33,7 +33,7 @@
                             <th>Fecha Hora Apertura</th>
                             <th>Cuenta</th>
                             <th>Precio</th>
-                            <th>Total Bs.</th>
+                            <th style="text-align: right;">Total Bs.</th>
                             <th>Detalles</th>
                         </tr>
                     </thead>
@@ -49,11 +49,11 @@
                             
                             <td>{{ $jorn->TasaSalidaCount()->get(['id_tasa_salida_date'])->count() }} Tasas</td>
                             
-                            <td></td>
+                            <td>{{ $jorn->tasaSalida()->get()->first()->precio }} Bs.</td>
 
-                            <td></td>
+                            <td style="text-align: right;" >{{ $jorn->tasaSalida()->get()->first()->precio * $jorn->TasaSalidaCount()->get(['id_tasa_salida_date'])->count().'.00' }} Bs.</td>
 
-                            <td><button class="btn btn-primary" type="button" target="_blank" >Ver Movimientos</button></td>
+                            <td><button class="btn btn-primary" type="button" target="_blank" >Ver</button></td>
                         </tr>
 
                         @endforeach

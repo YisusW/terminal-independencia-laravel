@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+
 use App\TasaSalidaCount;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use PDF;
 
 class TasaSalidaCountController extends Controller
@@ -59,12 +60,10 @@ class TasaSalidaCountController extends Controller
 
         if( isset( $usuario ) ) (object) $usuario ;
         
-
-        $fecha = Carbon::now('America/Caracas');
-
+        $fecha = Carbon::now();
+        
         return view('tasa-salida.hacer_reporte_admin')->with(compact( 'usuario' , 'fecha') );
 
-        //return ;
     }
 
     /**

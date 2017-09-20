@@ -28,8 +28,8 @@
 
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a href="{{ route('register') }}">Registro</a></li>
-                        <li><a href="{{ url('users') }}">Usuarios</a></li>
+                        <li><a href="{{ route('register') }}">Registrar</a></li>
+                        <li><a href="{{ url('users') }}">Lista</a></li>
 
                     </ul>            
                 
