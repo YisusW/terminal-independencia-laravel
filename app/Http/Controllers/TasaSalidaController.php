@@ -14,8 +14,13 @@ class TasaSalidaController extends Controller
     public function __construct()
     {
         # code...
-        //$this->middleware('guest');
         $this->middleware('auth');
+    }
+
+    private function verificar( Request $request ){
+
+
+
     }
 
     /**
@@ -23,9 +28,18 @@ class TasaSalidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index( )
+    {   
+        $tasa  = \App\TasaSalidaUser::where( 'id_user' , \Auth::user()->id  )
+        
+        ->where( 'description' , 'Abierta' )->get(['description'])->first();
+
+        if( isset($tasa->description) ){   
+
+            $info = 'Ésta jornada debe ser cerrada antes de abrir una nueva';
+            // si se encuentra la jornada abierta redirecciona a  cerrar la jornada
+            return redirect('let-it-go')->with( compact('tasa' , 'info') );
+        }
 
         $precio = TasaSalida::where( 'status' , 't' )->get([ 'id' , 'precio' ])->first();
 

@@ -87,17 +87,11 @@ class TasaSalidaCountController extends Controller
         # code...
         $count = new TasaSalidaCount;
 
-        $carbon = Carbon::now('America/Caracas');
-
         $count->id_tasa_salida_date = (int) $request->precio ;
-
-        $count->updated_at = $carbon ;
-
-        $count->created_at = $carbon ;
 
         if( $count->save() ){
             
-            $view =  \View::make('tasa-salida.pdf.report', compact('count'))->render();
+            $view =  \View::make('tasa-salida.pdf.ticket-salida', compact('count'))->render();
             
             $pdf = \App::make('dompdf.wrapper');
                    
@@ -110,6 +104,17 @@ class TasaSalidaCountController extends Controller
             return $pdf->stream();            
         }
 
+    }
+
+    public function informe_cierre_pdf( Request $request ){
+
+            $view =  \View::make('tasa-salida.pdf.cierre-jornada')->render();
+            
+            $pdf = \App::make('dompdf.wrapper');
+                                           
+            $pdf->loadHTML($view);
+
+            return $pdf->stream(); 
     }
 
     

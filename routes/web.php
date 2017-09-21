@@ -47,11 +47,11 @@ Route::get( 'let-it-go' , 'TasaSalidaUserController@preparar_datos_vender' );
 
 Route::post('tasa-salida-report' , 'TasaSalidaCountController@store' );
 
+Route::post( 'informe-cierre-jornada' , 'TasaSalidaCountController@informe_cierre_pdf' );
+
 // ADMIN VER JORNADAS CUENTAS ETC BLA BLA
 
 Route::get( 'jornada-opened' , 'TasaSalidaCountController@index' );
 
 Route::get( 'jornada-closed' , 'TasaSalidaCountController@endindex' );
-
-
 

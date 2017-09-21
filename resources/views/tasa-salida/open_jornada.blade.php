@@ -33,8 +33,7 @@
                     <label for="precio">Precio Activo:</label>
                     <div class="input-group">
                     <span class="input-group-addon">Bs.</span>
-                    <select id=precio class="form-control" name="price" >
-                            
+                    <select id=precio class="form-control" name="price" >                            
 
                             <option value="{{ $precio->id }}">{{ $precio->precio }}</option>
                             
@@ -52,10 +51,8 @@
                   
                   </div>                    
                   
-                  
-                  {{--  --}}
-
                   <button type="submit" class="btn btn-primary">Abrir</button>
+                  
                 </form>
 
                 </div>

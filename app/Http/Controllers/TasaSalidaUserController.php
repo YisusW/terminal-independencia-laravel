@@ -14,8 +14,7 @@ class TasaSalidaUserController extends Controller
 
     public function __construct()
     {
-        # code...
-        
+        # code...        
         $this->middleware('auth');
     }
 
@@ -61,13 +60,7 @@ class TasaSalidaUserController extends Controller
 
         $tasaSalidaUser->id_tasa_salida = $tasa->id;
 
-        $tasaSalidaUser->fecha = $request->fecha_apertura_jornada;
-
-        $carbon = Carbon::now('America/Caracas');
-
-        $tasaSalidaUser->updated_at = $carbon ;
-
-        $tasaSalidaUser->created_at = $carbon ;        
+        $tasaSalidaUser->fecha = $request->fecha_apertura_jornada;    
 
         if( $tasaSalidaUser->save() ) {
 
@@ -92,7 +85,7 @@ class TasaSalidaUserController extends Controller
 
         $tasa = TasaSalidaUser::where( 'id_user' , \Auth::user()->id )
 
-        ->where('description' , 'Abierta')->get()->last();        
+        ->where('description' , 'Abierta')->get()->last();
 
         return view('tasa-salida.vender')->with(compact('tasa'));
     }
@@ -120,13 +113,15 @@ class TasaSalidaUserController extends Controller
 
                 $message = "La jornada fué cerrada correctamente ";
 
-                return redirect('let-it-go')->with('message' , $message);
+                $option_reported = true ;
+
+                return redirect('let-it-go')->with(compact('message' , 'option_reported'));
 
             }
 
         } else {
 
-                $error = "La jornada fué cerrada correctamente ";
+                $error = "La jornada NO fué cerrada correctamente";
 
                 return redirect('let-it-go')->with('error' , $error);
         }
