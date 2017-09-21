@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
 use App\TasaSalida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
 use Carbon\Carbon;
 
 
@@ -30,8 +28,6 @@ class TasaSalidaController extends Controller
         //
 
         $precio = TasaSalida::where( 'status' , 't' )->get([ 'id' , 'precio' ])->first();
-
-        setlocale(LC_ALL, "es_VE.UTF-8");
 
         $carbon = Carbon::now('America/Caracas');
 
@@ -96,13 +92,7 @@ class TasaSalidaController extends Controller
 
              $tasa->status = $status ; 
 
-             $tasa->codigo_serial = 00000001 ;
-
-                $carbon = Carbon::now('America/Caracas');
-
-             $tasa->updated_at = $carbon ;
-
-             $tasa->created_at = $carbon ;             
+             $tasa->codigo_serial = 00000001 ;     
          
          if( $tasa->save() ){
 
@@ -113,11 +103,6 @@ class TasaSalidaController extends Controller
                 foreach ($other as $key => $value) {
                     # code...
                     $value->status = false;
-                
-                    $carbon = Carbon::now('America/Caracas');                    
-
-                    $value->updated_at = $carbon;
-
                     $value->update();
                 }
 

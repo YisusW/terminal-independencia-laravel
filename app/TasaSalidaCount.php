@@ -8,11 +8,11 @@ class TasaSalidaCount extends Model
 {
     //
 
-    public $table = 'tasa_salida_count';
+    protected $table = 'tasa_salida_count';
 
     public function __construct(){
 
-    	setlocale(LC_ALL, "es_VE.utf8");
+        setlocale(LC_ALL, "es_VE.UTF-8");    	
     }
 
     /**

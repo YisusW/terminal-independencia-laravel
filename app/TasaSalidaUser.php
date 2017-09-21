@@ -12,7 +12,7 @@ class TasaSalidaUser extends Model
     
     public function __construct(){
 
-    	setlocale(LC_ALL, "es_VE.utf8");
+        setlocale(LC_ALL, "es_VE.UTF-8");    	
     }
 
 	/**

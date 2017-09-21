@@ -15,7 +15,7 @@ class User extends Authenticatable
     public function __construct()
     {
         # code...
-        setlocale(LC_ALL, "es_VE.utf8");
+        setlocale(LC_ALL, "es_VE.UTF-8");
     }
 
 
@@ -37,8 +37,4 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // protected $dates = [
-    //     'created_at',
-    //     'updated_at'
-    // ];
 }
