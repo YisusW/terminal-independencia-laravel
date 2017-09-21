@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Ver Jornadas en Curso</div>
+                <div class="panel-heading">Ver Jornadas Cerradas</div>
 
                 <div class="panel-body">
 
@@ -55,17 +55,15 @@
 
                             <td>
 
-                                <button class="btn btn-primary btn-sm" type="button"
+                                <button class="btn btn-primary btn-sm" type="button" target="_blank" >Ver</button>
+
+                                <button class="btn btn-primary btn-sm" type="button" 
 
                                 onclick="event.preventDefault();
                                 
-                                document.getElementById('hacer_cierre_admin').submit();"
+                                document.getElementById('hacer_pdf_cierre').submit();">PDF</button>
                                 
-                                >Cerrar</button>
-
-                                <button class="btn btn-primary btn-sm" type="button">PDF</button>
-                                
-                                <form id="hacer_cierre_admin" action="{{ url('informe-cierre-jornada-from-admin') }}" method="POST" target="_blank" style="display: none;">
+                                <form id="hacer_pdf_cierre" action="{{ url('informe-cierre-jornada-from-admin') }}" method="POST" target="_blank" style="display: none;">
 
                                     {{ csrf_field() }}
 
@@ -74,6 +72,7 @@
                                     <input type="hidden" name="tasa_date" value="{{ $jorn->id }}">
                                 
                                 </form>
+
                             </td>
                         </tr>
 

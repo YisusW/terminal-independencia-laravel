@@ -9,15 +9,18 @@
 
                 <div class="panel-body">
 
-                @if( isset($message) )
+                @if( isset( $message )  )
 
                     <div class="alert alert-success" role="alert">
                         <strong>Bien hecho!</strong> {{ $message }} 
                     </div>
-                    @elseif( isset($error) )
-                    <div class="alert alert-success" role="alert">
+                    
+                @elseif( isset($error) )
+
+                    <div class="alert alert-error" role="alert">
                         <strong>Ups!</strong> {{ $error }} 
                     </div>
+
                 @endif
                 
                 <div class="col-md-8 col-md-offset-2">
@@ -70,7 +73,7 @@
                           <th>#</th>
                           <th>Precio</th>
                           <th>Estatus</th>
-                          <th>Option</th>
+                          <th>Opción</th>
                         </tr>
                       </thead>
                       <tbody>

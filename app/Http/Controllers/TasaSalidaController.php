@@ -17,12 +17,6 @@ class TasaSalidaController extends Controller
         $this->middleware('auth');
     }
 
-    private function verificar( Request $request ){
-
-
-
-    }
-
     /**
      * Display a listing of the resource.
      *

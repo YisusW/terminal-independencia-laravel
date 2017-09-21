@@ -63,7 +63,7 @@ class TasaSalidaCountController extends Controller
         
         $fecha = Carbon::now();
         
-        return view('tasa-salida.hacer_reporte_admin')->with(compact( 'usuario' , 'fecha') );
+        return view('tasa-salida.hacer_reporte_closed')->with(compact( 'usuario' , 'fecha') );
 
     }
 

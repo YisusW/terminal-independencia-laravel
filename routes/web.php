@@ -57,3 +57,13 @@ Route::get( 'jornada-opened' , 'TasaSalidaCountController@index' );
 
 Route::get( 'jornada-closed' , 'TasaSalidaCountController@endindex' );
 
+
+//---------------------------------------------------------------------
+//  -  GESTION DE RUTAS PARA LA ORGANIZACION DE LOS TIPOS DE LISTINES |
+//---------------------------------------------------------------------
+
+Route::get( 'tipo-listine'  , 'ListinTipo\TipoListinController@index' );
+
+Route::post( 'save-tipo-listin' , 'ListinTipo\TipoListinController@store' );
+
+Route::get( 'tipo-listine-price' , 'ListinTipo\TipoListinController@config_price' );
