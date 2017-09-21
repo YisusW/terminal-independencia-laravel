@@ -81,6 +81,20 @@
     				<td>{{ $tasa->updated_at->diffForHumans($tasa->created_at) }}</td>
     			</tr>
     		</tbody>
+                
+            <thead>
+                <tr>
+                    <th>Fecha Cierre</th>
+                    <th>Hora Cierre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $tasa->updated_at->formatLocalized('%A %d %B %Y') }}</td>
+                    <td>{{ $tasa->updated_at->format('h:i:s A') }}</td>
+                </tr>
+            </tbody>
+
             <thead>
                 <tr>
                     <th>Tasas Vendidas</th>

@@ -74,7 +74,6 @@
                     </div>
                     <form action="informe-cierre-jornada" method="POST" accept-charset="utf-8"  target="_blank">
                         {{ csrf_field() }}
-                        <a class="btn btn-primary" href="{{ url('open-jornada') }}" title="Abrir Jornada">Abrir nueva jornada</a>
                         
                         <button type="submit" class="btn btn-info" title="Reporte de cierre Jornada">Ver informe Jornada</button>
 
@@ -85,8 +84,6 @@
                     <div class="alert alert-info" role="alert">
                         <strong>Importante!</strong> Para seguir vendiendo debes abrir una nueva jornada
                     </div>
-
-                    <a class="btn btn-primary" href="{{ url('open-jornada') }}" title="Abrir Jornada">Abrir nueva jornada</a>
 
                 @endif                
 

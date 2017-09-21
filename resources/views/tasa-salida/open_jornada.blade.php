@@ -22,8 +22,9 @@
 
                 @endif
                 
+                @if( isset($precio) )
                 <div class="col-md-8 col-md-offset-2">
-
+                
                 <form action="open_jornada_user" method="POST" accept-charset="utf-8">
 
                 {{ csrf_field() }}
@@ -52,10 +53,18 @@
                   </div>                    
                   
                   <button type="submit" class="btn btn-primary">Abrir</button>
-                  
-                </form>
+                
 
+                </form>
                 </div>
+                @else
+
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Atención!</strong> Estamos esperando la configuración necesaria para comenzar
+                    </div>
+
+                @endif
+                
 
                 </div>
             </div>
