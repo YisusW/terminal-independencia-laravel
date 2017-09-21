@@ -53,7 +53,27 @@
 
                             <td style="text-align: right;" >{{ $jorn->tasaSalida()->get()->first()->precio * $jorn->TasaSalidaCount()->get(['id_tasa_salida_date'])->count().'.00' }} Bs.</td>
 
-                            <td><button class="btn btn-primary" type="button" target="_blank" >Ver</button></td>
+                            <td>
+
+                                <button class="btn btn-primary btn-sm" type="button" target="_blank" >Ver</button>
+
+                                <button class="btn btn-primary btn-sm" type="button" 
+
+                                onclick="event.preventDefault();
+                                
+                                document.getElementById('hacer_pdf_cierre').submit();">PDF</button>
+                                
+                                <form id="hacer_pdf_cierre" action="{{ url('informe-cierre-jornada-from-admin') }}" method="POST" target="_blank" style="display: none;">
+
+                                    {{ csrf_field() }}
+
+                                    <input type="hidden" name="user" value="{{ $jorn->user()->get()->first()->id }}">
+                                    
+                                    <input type="hidden" name="tasa_date" value="{{ $jorn->id }}">
+                                
+                                </form>
+
+                            </td>
                         </tr>
 
                         @endforeach

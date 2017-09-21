@@ -40,7 +40,7 @@ Route::post( 'open_jornada_user' , 'TasaSalidaUserController@store' );
 
 Route::get( 'cierre-jornada/{id}/{jornada_abierta}' , 'TasaSalidaUserController@cerrar_jornada' );
 
-// VENTER TASA SALIDA 
+// VENTER TASA SALIDA  ( VENTAS Ticket y REPORTES DE CIERRE JORNADA )
 
 
 Route::get( 'let-it-go' , 'TasaSalidaUserController@preparar_datos_vender' );
@@ -48,6 +48,8 @@ Route::get( 'let-it-go' , 'TasaSalidaUserController@preparar_datos_vender' );
 Route::post('tasa-salida-report' , 'TasaSalidaCountController@store' );
 
 Route::post( 'informe-cierre-jornada' , 'TasaSalidaCountController@informe_cierre_pdf' );
+
+Route::post( 'informe-cierre-jornada-from-admin' , 'TasaSalidaCountController@admin_informe_cierre_pdf' );
 
 // ADMIN VER JORNADAS CUENTAS ETC BLA BLA
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\TasaSalidaCount;
+use App\TasaSalidaUser;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use PDF;
@@ -108,7 +109,16 @@ class TasaSalidaCountController extends Controller
 
     public function informe_cierre_pdf( Request $request ){
 
-            $view =  \View::make('tasa-salida.pdf.cierre-jornada')->render();
+        $tasa = TasaSalidaUser::where('description' , 'Cerrada')
+        
+        ->where( 'id_user' , \Auth::user()->id )
+        
+        ->get()
+        
+        ->last();
+
+    
+            $view =  \View::make('tasa-salida.pdf.cierre-jornada' , compact('tasa') )->render();
             
             $pdf = \App::make('dompdf.wrapper');
                                            
@@ -117,6 +127,27 @@ class TasaSalidaCountController extends Controller
             return $pdf->stream(); 
     }
 
+    public function admin_informe_cierre_pdf( Request $request ){
+                
+        $tasa = TasaSalidaUser::where('description' , 'Cerrada')
+        
+        ->where( 'id_user' , (int) $request->user )
+        
+        ->where( 'id' , (int) $request->tasa_date )
+
+        ->get()
+        
+        ->last();
+
+
+        $view =  \View::make('tasa-salida.pdf.cierre-jornada' , compact('tasa') )->render();
+        
+        $pdf = \App::make('dompdf.wrapper');
+                                       
+        $pdf->loadHTML($view);
+
+        return $pdf->stream(); 
+    }
     
 
     /**
