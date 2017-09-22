@@ -29,7 +29,7 @@
 
                   {{ csrf_field() }}
                 
-                  <div class="form-group">
+                  <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
                     <label for="precio">Precio:</label>
                       <div class="input-group">
                         
@@ -37,7 +37,11 @@
                         <span class="input-group-addon">Bs.</span>
                       </div>
 
-                      <span class="help-block"></span>
+                      @if ($errors->has('price'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('price') }}</strong>
+                          </span>
+                      @endif
                   </div>
                     
                   <div class="form-group">

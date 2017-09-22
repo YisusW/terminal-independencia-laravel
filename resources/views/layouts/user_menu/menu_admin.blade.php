@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ url('/home') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         </div>
@@ -64,7 +64,10 @@
                     <ul class="dropdown-menu" role="menu">
                                                         
                         <li><a href="{{ url('tipo-listine') }}">Asignar Tipo</a></li>
+
                         <li><a href="{{ url('tipo-listine-price') }}">Asignar Precio</a></li>
+
+                        <li><a href="{{ url('open-jornada-litin') }}">Abrir Jornada</a></li>
 
                     </ul>                        
                     

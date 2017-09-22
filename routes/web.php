@@ -67,3 +67,5 @@ Route::get( 'tipo-listine'  , 'ListinTipo\TipoListinController@index' );
 Route::post( 'save-tipo-listin' , 'ListinTipo\TipoListinController@store' );
 
 Route::get( 'tipo-listine-price' , 'ListinTipo\TipoListinController@config_price' );
+
+Route::post( 'save-tipo-price' , 'ListinTipo\TipoListinPriceController@store' );

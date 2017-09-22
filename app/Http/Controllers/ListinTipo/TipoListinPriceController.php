@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\ListinTipo;
 
-
 use App\TipoListinPrice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class TipoListinPriceController extends Controller
 {
@@ -29,6 +29,19 @@ class TipoListinPriceController extends Controller
         //
     }
 
+    protected function validar_registro ( $data ){
+
+        return Validator::make($data, [
+
+            'tipo_listine' => 'required|exists:tipo_listin,id',
+
+            'precio' => 'required|numeric|unique:tipo_listin_price,precio',
+
+            'estatus' => 'required|string',
+
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,6 +51,41 @@ class TipoListinPriceController extends Controller
     public function store(Request $request)
     {
         //
+
+        $validar =  $this->validar_registro( $request->all() );
+
+        if( $validar->fails() ){
+            //dd( $validar->errors() ) ;
+            return redirect('tipo-listine-price')
+
+            ->withErrors( $validar->errors() );
+            
+        }
+
+        $price  = new TipoListinPrice;
+
+        $price->id_tipo_listin = (int) $request->tipo_listine;
+        $price->precio = $request->precio ;
+
+        $estatus = ( $request->estatus == 'Activo'  ) ? true : false ;
+
+        $price->status = $estatus;
+        
+        if ( $price->save() ){
+
+            $message = 'El precio fué guardado correctamente';
+
+            $tipo =  \App\TipoListin::where( 'status' , 't' )->get([ 'id' , 'descripcion' , 'status' ]);
+
+            $listin_precio = \App\TipoListinPrice::orderBy( 'status' , 'desc' )
+
+            ->orderBy( 'created_at' , 'desc' )
+
+            ->get();
+
+            return redirect('tipo-listine-price')->with(compact('message' , 'tipo' , 'listin_precio'));
+        }
+
     }
 
     /**

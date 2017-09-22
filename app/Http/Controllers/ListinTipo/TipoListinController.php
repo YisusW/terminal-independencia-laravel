@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ListinTipo;
 use App\TipoListin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class TipoListinController extends Controller
 {
@@ -59,12 +60,6 @@ class TipoListinController extends Controller
         $tipo_listine->status  = $status ;
      
         if( $tipo_listine->save() ){
-
-            if ( $tipo_listine->status == true ) {
-
-
-                $this->cambiar_estatus( $tipo_listine );
-            }
 
             $message = 'El tipo de fue guardado correctamente';
 
@@ -135,10 +130,15 @@ class TipoListinController extends Controller
     }
 
     public function config_price( Request $request )
-    {
-       
-        $tipo =  TipoListin::where( 'status' , 't' )->get([ 'id' , 'descripcion' , 'status' ])->first();
+    {       
+        $tipo =  TipoListin::where( 'status' , 't' )->get([ 'id' , 'descripcion' , 'status' ]);
 
-        return view('listine.price')->with(compact('tipo'));
+        $listin_precio = \App\TipoListinPrice::orderBy( 'status' , 'desc' )
+
+        ->orderBy( 'created_at' , 'desc' )
+
+        ->get();
+
+        return view('listine.price')->with(compact('tipo' , 'listin_precio'));
     }    
 }

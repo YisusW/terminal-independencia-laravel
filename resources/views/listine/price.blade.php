@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Asignar Precio Tipo Listín</div>
 
@@ -27,18 +27,47 @@
                         
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                            <label for="description" class="col-md-4 control-label">Nómbre</label>
+                        <div class="form-group{{ $errors->has('tipo_listine') ? ' has-error' : '' }}">
+                            <label for="tipo_listine" class="col-md-4 control-label">Tipo Listin</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" required autofocus>
+                                
+                                <select class="form-control" name="tipo_listine" required  autofocus>
+                                    
+                                    <option value=""> Seleccione un Tipo </option>
+                                    @if( isset( $tipo ) )
+                                        @foreach( $tipo as $tipe_one )
+                                        <option value="{{ $tipe_one->id }}" >{{ $tipe_one->descripcion }}</option>
+                                        @endforeach                                   
+                                    @endif
+                                </select>
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('tipo_listine'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
+                                        <strong>{{ $errors->first('tipo_listine') }}</strong>
                                     </span>
                                 @endif
                             </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('precio') ? ' has-error' : '' }}">
+                            <label for="precio" class="col-md-4 control-label">Precio</label>
+
+                            <div class="col-md-6">
+
+                              <div class="input-group">
+                                
+                                <input id="precio" type="numeric" class="form-control" name="precio" placeholder="500,00" required>
+                                <span class="input-group-addon">Bs.</span>
+                              </div>  
+
+                                @if ($errors->has('precio'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('precio') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
                         </div>
 
                         <div class="form-group{{ $errors->has('estatus') ? ' has-error' : '' }}">
@@ -46,7 +75,7 @@
 
                             <div class="col-md-6">
                             
-                                <select class="form-control" name="estatus">
+                                <select class="form-control" name="estatus" required >
 
                                     <option value="Inactivo">Inactivo</option>
                                     <option value="Activo">Activo</option>
@@ -83,14 +112,27 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Nómbre</th>
+                          <th>Listín</th>
+                          <th>Precio</th>
                           <th>Estatus</th>
                           <th>Opción</th>
                         </tr>
                       </thead>
                       <tbody>
 
-                        
+                        @if( isset($listin_precio) )
+                        @foreach( $listin_precio as $key => $listin )
+
+                            <tr @if( $listin->status == true ) class="success" @endif >
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $listin->tipoListin()->get()->first()->descripcion }}</td>
+                                <td>{{ $listin->precio }} Bs.</td>
+                                <td>@if( $listin->status == true ) Activo @else Inactivo @endif</td>
+                                <td></td>
+                            </tr>
+
+                        @endforeach
+                        @endif
 
                       </tbody>
                     </table>

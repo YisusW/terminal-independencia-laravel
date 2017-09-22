@@ -87,9 +87,8 @@ class TasaSalidaController extends Controller
         if( $vali_result->fails() ){
 
             return redirect('tasa-salida-config')
-
-            ->with($vali_result->errors()->all());
-            
+            ->withErrors( $vali_result->errors() );
+                        
         }
 
          $tasa = new TasaSalida;

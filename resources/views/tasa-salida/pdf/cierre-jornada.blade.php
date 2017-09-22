@@ -18,6 +18,11 @@
 	  margin: 0;
 	}
 
+table {
+  border-collapse: separate;
+  border-spacing:  5px 15px;
+}    
+
     @page { margin: 180px 50px; }
 
     #header { 
@@ -60,17 +65,16 @@
 
 
     <div id="content" style="font-family:sans-serif;">
-        <br>
+       
             <center><h1>INFORME JORNADA : {{ $tasa->user()->get()->first()->name }}</h1></center>
-    	<br>
 
-    	<table style="width: 100% ;">
+    	<table style="width: 100% ; border-collapse: separate;  border-spacing:  5px 15px;">
 
     		<thead>
     			<tr>
     				<th>Fecha Apertura</th>
     				<th>Hora Apertura</th>
-    				<th>Duración Jornada</th>
+    				
     			</tr>
     		</thead>
 
@@ -78,7 +82,7 @@
     			<tr>
     				<td>{{ $tasa->created_at->formatLocalized('%A %d %B %Y') }}</td>
     				<td>{{ $tasa->created_at->format('h:i:s A') }}</td>
-    				<td>{{ $tasa->updated_at->diffForHumans($tasa->created_at) }}</td>
+    				
     			</tr>
     		</tbody>
                 
