@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     
-    <title>Reporte Cierre Jornada</title>
+    <title>Reporte Jornada Cerrada </title>
 
     <style type="text/css" media="print">
 
@@ -17,12 +17,6 @@
 	html {
 	  margin: 0;
 	}
-
-table {
-  border-collapse: separate;
-  border-spacing:  5px 15px;
-}    
-
     @page { margin: 180px 50px; }
 
     #header { 
@@ -50,7 +44,9 @@ table {
         content: counter(page, upper-roman); 
     }
     </style>
+    <style type="text/css">
 
+    </style>
   </head>
   <body>
 
@@ -63,69 +59,52 @@ table {
 
     <!--footer para cada pagina-->
 
-
     <div id="content" style="font-family:sans-serif;">
        
-            <center><h1>INFORME JORNADA : {{ $tasa->user()->get()->first()->name }}</h1></center>
-
-    	<table style="width: 100% ; border-collapse: separate;  border-spacing:  5px 15px;">
+            <center><h1>INFORME JORNADA CERRADA</h1></center>
+        <hr>
+    	<table style="width: 100% ; 
+            border-collapse: separate;  
+            border-spacing:  5px 15px; ">
 
     		<thead>
     			<tr>
     				<th>Fecha Apertura</th>
-    				<th>Hora Apertura</th>
-    				
+    				<th>Hora Apertura</th>    				
     			</tr>
-    		</thead>
-
-    		<tbody>
-    			<tr>
-    				<td>{{ $tasa->created_at->formatLocalized('%A %d %B %Y') }}</td>
-    				<td>{{ $tasa->created_at->format('h:i:s A') }}</td>
-    				
-    			</tr>
-    		</tbody>
-                
-            <thead>
+                <tr>
+                    <td>{{ $tasa->created_at->formatLocalized('%A %d %B %Y') }}</td>
+                    <td>{{ $tasa->created_at->format('h:i:s A') }}</td>
+                    
+                </tr> 
                 <tr>
                     <th>Fecha Cierre</th>
                     <th>Hora Cierre</th>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
                     <td>{{ $tasa->updated_at->formatLocalized('%A %d %B %Y') }}</td>
                     <td>{{ $tasa->updated_at->format('h:i:s A') }}</td>
-                </tr>
-            </tbody>
+                </tr>  
 
-            <thead>
                 <tr>
                     <th>Tasas Vendidas</th>
                     <th>Precio</th>
                     <th>Total</th>
                 </tr>
-            </thead>
-            <tbody>
+
                 <tr>
                     <td>{{ $tasa->TasaSalidaCount()->get(['id_tasa_salida_date'])->count() }}</td>
                     <td>{{ $tasa->tasaSalida()->get()->first()->precio }} Bs.</td>
                     <td>{{ $tasa->tasaSalida()->get()->first()->precio * $tasa->TasaSalidaCount()->get(['id_tasa_salida_date'])->count().'.00' }} Bs.</td>
-                </tr>
-            </tbody>
+                </tr>                              
+            </thead>
     	</table>
-
-        <table style="width: 100% ;">
-
-
-        </table>
-
     </div>
    	  	
     
     <div id="footer">
         <!--aqui se muestra el numero de la pagina en numeros romanos-->
-        
+        <hr>
         <p class="page"></p>
         
     </div>    
