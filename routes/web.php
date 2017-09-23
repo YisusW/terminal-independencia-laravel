@@ -43,13 +43,13 @@ $controllers =  (object) array(
 //  SOLO EL ADMINISTRADOR ACCEDE ...
 Route::get( 'tasa-salida-config' , $controllers->tasa_c_one.'@config' );
 
-Route::post( 'save-price-tasa' , $controllers->tasa_c_one.'@store' );
+Route::post( 'save-price-tasa'   , $controllers->tasa_c_one.'@store' );
 
 // ABRIR JORNADA DE TASA DE SALIDA
 
-Route::get( 'open-jornada' , $controllers->tasa_c_one.'@index' );
+Route::get( 'open-jornada'                          , $controllers->tasa_c_one.'@index' );
 
-Route::post( 'open_jornada_user' , $controllers->tasa_c_two.'@store' );
+Route::post( 'open_jornada_user'                    , $controllers->tasa_c_two.'@store' );
 
 Route::get( 'cierre-jornada/{id}/{jornada_abierta}' , $controllers->tasa_c_two.'@cerrar_jornada' );
 
@@ -75,10 +75,10 @@ Route::get( 'jornada-closed' , $controllers->tasa_c_tre.'@endindex' );
 //  -  GESTION DE RUTAS PARA LA ORGANIZACION DE LOS TIPOS DE LISTINES |
 //---------------------------------------------------------------------
 
-Route::get( 'tipo-listine'  , $controllers->tine_one.'@index' );
+Route::get( 'tipo-listine'       , $controllers->tine_one.'@index' );
 
-Route::post( 'save-tipo-listin' , $controllers->tine_one.'@store' );
+Route::post( 'save-tipo-listin'  , $controllers->tine_one.'@store' );
 
 Route::get( 'tipo-listine-price' , $controllers->tine_one.'@config_price' );
 
-Route::post( 'save-tipo-price' , $controllers->tine_two.'@store' );
+Route::post( 'save-tipo-price'   , $controllers->tine_two.'@store' );
