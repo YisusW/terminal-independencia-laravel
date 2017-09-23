@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TasaSalida;
 
 
 use App\TasaSalidaCount;
 use App\TasaSalidaUser;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use PDF;
 

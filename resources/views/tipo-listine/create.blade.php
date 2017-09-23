@@ -88,9 +88,7 @@
                           <th>Opción</th>
                         </tr>
                       </thead>
-                      <tbody>
-
-                        
+                      <tbody>                        
                         @if( isset($tipo) )
                         
                         @foreach( $tipo as $key => $tipo_one )
@@ -104,10 +102,10 @@
                             <td>@if( $tipo_one->status == true ) Activo @else Inactivo @endif</td>
                         
                             <td></td>
-
                         </tr>
                         
                         @endforeach
+                        
                         @endif
                       </tbody>
                     </table>
