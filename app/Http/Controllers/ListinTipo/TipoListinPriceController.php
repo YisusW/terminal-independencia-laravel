@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Validator;
 
 class TipoListinPriceController extends Controller
 {
+
+
+    public function __construct()
+    {
+        # code...
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

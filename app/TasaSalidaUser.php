@@ -8,7 +8,7 @@ class TasaSalidaUser extends Model
 {
     //
 
-	protected $table = "tasa_salida_date";
+	protected $table = "tasa_salida_jornada";
     
     public function __construct(){
 

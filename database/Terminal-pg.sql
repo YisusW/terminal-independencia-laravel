@@ -112,7 +112,7 @@ CREATE TABLE  tasa_salida_count(
 	
 	CONSTRAINT count_id_tasa_salida_date FOREIGN KEY ( id_tasa_salida_date ) REFERENCES 
 
-	tasa_salida_date( id ) ON UPDATE CASCADE ON DELETE CASCADE
+	tasa_salida_jornada( id ) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
 

@@ -16,6 +16,8 @@ class TipoListinController extends Controller
         $this->middleware('auth');
     }
 
+
+
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +27,8 @@ class TipoListinController extends Controller
     {
         //
         $tipo = TipoListin::orderBy('status' , 'desc')->get();
-
-
+        
+        if( count($tipo) == 0 ) return view('tipo-listine.create');
 
         return view('tipo-listine.create')->with( compact('tipo') );
     }
@@ -41,6 +43,17 @@ class TipoListinController extends Controller
         //
     }
 
+    public function validar_registro( $datos = array() ){
+
+        return  Validator::make( $datos , [
+
+            'nombre' => 'required|alpha_num|unique:tipo_listin,descripcion',
+
+            'estatus' => 'required|string',
+
+        ] );
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -50,12 +63,18 @@ class TipoListinController extends Controller
     public function store(Request $request)
     {
         //
+        $valid = $this->validar_registro( $request->all() );
+
+        if( $valid->fails() ){
+            
+            return redirect('tipo-listine')->withErrors( $valid->errors() );
+        }
 
         $tipo_listine = new TipoListin;
 
         $status = ( $request->estatus == 'Activo'  ) ? true : false ;
 
-        $tipo_listine->descripcion  = $request->description;
+        $tipo_listine->descripcion  = $request->nombre;
 
         $tipo_listine->status  = $status ;
      

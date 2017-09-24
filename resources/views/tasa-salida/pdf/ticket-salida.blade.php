@@ -60,7 +60,7 @@
 
    		<br>
 
-   		<font style="font-size: 40; font-weight: normal; color:#8D8D8D">N° {{ $count->id }}</font>
+   		<font style="font-size: 40; font-weight: normal; color:#8D8D8D">N° {{ $numero }}</font>
 
    		<br>
 

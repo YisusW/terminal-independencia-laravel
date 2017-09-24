@@ -27,15 +27,15 @@
                         
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Nómbre</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" required autofocus>
+                                <input id="description" type="text" class="form-control" name="nombre" required autofocus>
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('nombre'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
+                                        <strong>{{ $errors->first('nombre') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -78,7 +78,7 @@
                 <div class="col-md-12">
 
                   <div class="table-responsive">
-                    <table class="table table-condensed" >
+                    <table class="table  table-condensed table-hover" >
 
                       <thead>
                         <tr>
@@ -101,11 +101,19 @@
                         
                             <td>@if( $tipo_one->status == true ) Activo @else Inactivo @endif</td>
                         
-                            <td></td>
+                            <td role="button"> 
+                                <span class="label label-primary" role="button">Editar</span> 
+
+                            </td>
                         </tr>
                         
                         @endforeach
-                        
+                        @else
+                        <tr> 
+                            <td colspan="4"> 
+                                <label class="text-danger"> No hay Registros </label>
+                            </td> 
+                        </tr>
                         @endif
                       </tbody>
                     </table>

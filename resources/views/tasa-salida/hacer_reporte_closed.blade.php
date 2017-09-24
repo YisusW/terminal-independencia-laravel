@@ -80,7 +80,7 @@
                         @else
                         <tr> 
                             <td colspan="3"> 
-                                <label class="text-danger"> No hay Jornadas abiertas </label>
+                                <label class="text-danger"> No hay Jornadas cerradas </label>
                             </td> 
                         </tr>
                         @endif

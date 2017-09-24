@@ -7,7 +7,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Registro</div>
 
+
                 <div class="panel-body">
+
+                @if( isset( $message  ))
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Atención!</strong> {{ $message }} 
+                    </div>
+                @endif
+
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 

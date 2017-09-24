@@ -36,7 +36,14 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $adminExist = User::where('privilegies' , 'A')->get()->first();
+
+        $message = 'Debes registrar el Usuario Administrador del sistema';
+
+        if( $adminExist )
+            $this->middleware('auth');
+
+        
     }
 
     /**

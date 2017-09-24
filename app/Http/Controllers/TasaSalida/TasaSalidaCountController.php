@@ -94,7 +94,9 @@ class TasaSalidaCountController extends Controller
 
         if( $count->save() ){
             
-            $view =  \View::make('tasa-salida.pdf.ticket-salida', compact('count'))->render();
+            $numero = TasaSalidaCount::where('id_tasa_salida_date' ,$count->id_tasa_salida_date  )->count();
+
+            $view =  \View::make('tasa-salida.pdf.ticket-salida', compact('count' , 'numero'))->render();
             
             $pdf = \App::make('dompdf.wrapper');
                    

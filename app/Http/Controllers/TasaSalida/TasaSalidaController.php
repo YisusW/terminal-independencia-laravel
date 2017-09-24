@@ -174,6 +174,8 @@ class TasaSalidaController extends Controller
 
         $tasa = TasaSalida::orderBy('status' , 'desc')->get();
 
+        if( count( $tasa ) == 0 ) return view('tasa-salida.config');
+
         return view('tasa-salida.config')->with( compact('tasa') );
     }
 }

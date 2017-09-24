@@ -23,54 +23,60 @@
 
                 @endif
                 
-                <div class="col-md-8 col-md-offset-2">
-
-                <form action="save-price-tasa" method="post" accept-charset="utf-8">
+                <form class="form-horizontal" action="save-price-tasa" method="post" accept-charset="utf-8">
 
                   {{ csrf_field() }}
                 
                   <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
-                    <label for="precio">Precio:</label>
+                    
+                    <label for="precio" class="col-md-4 control-label">Precio</label>
+                    <div class="col-md-6">
                       <div class="input-group">
                         
                         <input id="precio" type="text" class="form-control" name="price" placeholder="50,00">
                         <span class="input-group-addon">Bs.</span>
                       </div>
-
+      
                       @if ($errors->has('price'))
                           <span class="help-block">
                               <strong>{{ $errors->first('price') }}</strong>
                           </span>
                       @endif
+                    </div>
                   </div>
                     
                   <div class="form-group">
 
-                    <label for="precio">Estatus:</label>
+                    <label for="precio"  class="col-md-4 control-label" >Estatus</label>
+                    <div class="col-md-6">
                       <select name="status" class="form-control" name="estatus" >
                         
                         <option value="Inactivo">Inactivo</option>
                         <option value="Activo">Activo</option>
                       
                       </select>
-
-                     <span class="help-block"></span>
+                     
+                   </div>
                   </div> 
                   
                   {{--  --}}                  
                   
-                  <button type="reset" class="btn btn-default">Cancelar</button>
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="reset" class="btn btn-default">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
                 </form>
-
-
-
-                </div>
 
                 <div class="col-md-12">
 
                   <div class="table-responsive">
-                    <table class="table table-condensed" >
+                    <table class="table  table-condensed table-hover" >
 
                       <thead>
                         <tr>
@@ -81,6 +87,7 @@
                         </tr>
                       </thead>
                       <tbody>
+                      @if( isset($tasa) ) 
 
                       @foreach( $tasa as $key => $taserm )
 
@@ -95,6 +102,13 @@
 
                       @endforeach
 
+                      @else
+                        <tr>
+                          <td colspan="4">
+                            <label class="text-danger">No Hay Registros</label>
+                          </td>
+                        </tr>
+                      @endif
                       </tbody>
                     </table>
                   </div>
