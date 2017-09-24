@@ -83,4 +83,4 @@ Route::get( 'tipo-listine-price' , $controllers->tine_one.'@config_price' );
 
 Route::post( 'save-tipo-price'   , $controllers->tine_two.'@store' );
 
-Route::get( 'listine-jornada-open' , $controllers->tine_two.'@vista_jornada_open' );
+Route::get( 'open-jornada-listine' , $controllers->tine_two.'@vista_jornada_open' );

@@ -1,7 +1,6 @@
 
 
-
-CREATE TABLE   tipo_listin(
+CREATE TABLE  tipo_listin(
 
 	id BIGSERIAL PRIMARY KEY NOT NULL,
 	descripcion character varying not null,
@@ -26,6 +25,101 @@ CREATE TABLE  tipo_listin_price(
 
 );
 
+CREATE TABLE tipo_listin_jornada(
+
+	id BIGSERIAL PRIMARY KEY NOT NULL,
+    id_user bigint NOT NULL,
+    description character varying DEFAULT 'Abierta'::character varying NOT NULL,
+	fecha date not null,
+	created_at timestamp,
+	updated_at timestamp,
+
+	CONSTRAINT foreign_key_user_listine FOREIGN KEY (id_user) REFERENCES 
+
+	users(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+);
+
+CREATE TABLE  tipo_listin_jornada_tipo_listin_price_date(
+
+	id BIGSERIAL PRIMARY KEY NOT NULL,
+	id_tipo_listin_jornada bigint NOT NULL,
+	id_tipo_listin_price bigint NOT NULL,
+	created_at timestamp,
+	updated_at timestamp,
+
+	CONSTRAINT foreign_key_listin_jornada_tipo_listin_price_date_jornada_id FOREIGN KEY ( id_tipo_listin_jornada )
+
+	REFERENCES tipo_listin_jornada ( id ) ON DELETE CASCADE ON UPDATE CASCADE,
+
+	CONSTRAINT foreign_key_listin_jornada_tipo_listin_price_date_tipo_listin_price_id FOREIGN KEY ( id_tipo_listin_price )
+
+	REFERENCES tipo_listin_price ( id ) ON DELETE CASCADE ON UPDATE CASCADE
+
+);
+
+CREATE TABLE listin_count(
+
+	id BIGSERIAL PRIMARY KEY NOT NULL,
+	id_tipo_listin_jornada_tipo_listin_price_date BIGINT NOT NULL,
+	created_at timestamp,
+	updated_at timestamp,
+
+	CONSTRAINT foreign_key_listin_count_jornadas_agregadas_bla FOREIGN KEY ( id_tipo_listin_jornada_tipo_listin_price_date )
+
+	REFERENCES tipo_listin_jornada_tipo_listin_price_date( id ) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE  tasa_salida(
+
+	id BIGSERIAL PRIMARY KEY NOT NULL,
+	codigo_serial BIGSERIAL not null,
+	precio numeric(15,2) not null,
+	status boolean not null,
+	created_at timestamp,
+	updated_at timestamp
+
+);
+
+
+CREATE TABLE  tasa_salida_jornada(
+
+	id BIGSERIAL PRIMARY KEY NOT NULL,
+	id_tasa_salida BIGINT NOT NULL,
+    id_user bigint NOT NULL,
+    description character varying DEFAULT 'Abierta'::character varying NOT NULL,	
+	fecha date not null,
+	created_at timestamp,
+	updated_at timestamp,
+
+	CONSTRAINT conter_reference_tasa_salida_master FOREIGN KEY (id_tasa_salida) REFERENCES 
+
+	tasa_salida (id) ON DELETE CASCADE ON UPDATE CASCADE,
+	
+	CONSTRAINT foreign_key_suer FOREIGN KEY (id_user) REFERENCES 
+
+	users (id) ON UPDATE CASCADE ON DELETE CASCADE	
+
+);
+
+
+CREATE TABLE  tasa_salida_count(
+
+	id BIGSERIAL PRIMARY KEY NOT NULL,
+	id_tasa_salida_date BIGINT NOT NULL,
+	created_at timestamp,
+	updated_at timestamp,	
+	
+	CONSTRAINT count_id_tasa_salida_date FOREIGN KEY ( id_tasa_salida_date ) REFERENCES 
+
+	tasa_salida_date( id ) ON UPDATE CASCADE ON DELETE CASCADE
+
+);
+
+/*
+ESTO SE PUEDE IMPLEMENTAR LUEGO DE QUE ME LARGUE A  COLOMBIA XD 
+EN REALIDAD SERIA  BIEN PERO SE NECESITA MAS O MENOS  UNOS  DOS "MESES" NO 2 semanas y media
+PUSE AUQUI LES VA UN MEDIo MAPEO DE LAS TABLAS
 
 CREATE TABLE  linee(
 
@@ -127,43 +221,5 @@ CREATE TABLE  listin(
 
 );
 
-CREATE TABLE  tasa_salida(
 
-	id BIGSERIAL PRIMARY KEY NOT NULL,
-	codigo_serial BIGSERIAL not null,
-	precio numeric(15,2) not null,
-	status boolean not null,
-	created_at timestamp,
-	updated_at timestamp
-
-);
-
-
-CREATE TABLE  tasa_salida_date(
-
-	id BIGSERIAL PRIMARY KEY NOT NULL,
-	id_tasa_salida BIGINT NOT NULL,
-	fecha date not null,
-	created_at timestamp,
-	updated_at timestamp,
-
-	CONSTRAINT conter_reference_tasa_salida_master FOREIGN KEY (id_tasa_salida) REFERENCES 
-
-	tasa_salida (id) ON DELETE CASCADE ON UPDATE CASCADE	
-
-);
-
-
-CREATE TABLE  tasa_salida_count(
-
-	id BIGSERIAL PRIMARY KEY NOT NULL,
-	id_tasa_salida_date BIGINT NOT NULL,
-	created_at timestamp,
-	updated_at timestamp,	
-	
-	CONSTRAINT count_id_tasa_salida_date FOREIGN KEY ( id_tasa_salida_date ) REFERENCES 
-
-	tasa_salida_date( id ) ON UPDATE CASCADE ON DELETE CASCADE
-
-);
-
+*/

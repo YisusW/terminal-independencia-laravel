@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "app"
+		},
+		{
+			"path": "routes"
+		},
+		{
+			"path": "database"
+		}
+	]
+}

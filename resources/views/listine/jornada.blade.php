@@ -36,13 +36,13 @@
                                 <span class="input-group-addon">Bs.</span>
                                 <select class="form-control" name="tipo_listine" required  autofocus>
                                     
-                                    <option value=""> Seleccione un Listín </option>
+                                   
                                     @if( isset( $listine ) )
                                         @foreach( $listine as $listin )
                                         <option value="{{ $listin->id }}" >
                                             {{ 
                                                 $listin->precio
-                                                .' '.
+                                                .' - '.
                                                 $listin->tipoListin()->get()->first()->descripcion 
                                             }}
                                         </option>

@@ -67,7 +67,7 @@
 
                         <li><a href="{{ url('tipo-listine-price') }}">Asignar Precio</a></li>
 
-                        <li><a href="{{ url('listine-jornada-open') }}">Abrir Jornada</a></li>
+                        <li><a href="{{ url('open-jornada-listine') }}">Abrir Jornada</a></li>
 
                     </ul>                        
                     
