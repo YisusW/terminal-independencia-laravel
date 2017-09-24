@@ -68,6 +68,7 @@
             border-spacing:  5px 15px; ">
 
     		<thead>
+                
     			<tr>
     				<th>Fecha Apertura</th>
     				<th>Hora Apertura</th>    				
@@ -77,6 +78,7 @@
                     <td>{{ $tasa->created_at->format('h:i:s A') }}</td>
                     
                 </tr> 
+
                 <tr>
                     <th>Fecha Cierre</th>
                     <th>Hora Cierre</th>
@@ -85,7 +87,7 @@
                     <td>{{ $tasa->updated_at->formatLocalized('%A %d %B %Y') }}</td>
                     <td>{{ $tasa->updated_at->format('h:i:s A') }}</td>
                 </tr>  
-
+                {{-- ULTIMA LINEA DE  LA TABLA INFORMACION DE LAS TASAS GENERADAS --}}
                 <tr>
                     <th>Tasas Vendidas</th>
                     <th>Precio</th>

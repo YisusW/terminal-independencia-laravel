@@ -47,7 +47,7 @@ Route::post( 'save-price-tasa'   , $controllers->tasa_c_one.'@store' );
 
 // ABRIR JORNADA DE TASA DE SALIDA
 
-Route::get( 'open-jornada'                          , $controllers->tasa_c_one.'@index' );
+Route::get( 'open-jornada-tasa'                          , $controllers->tasa_c_one.'@index' );
 
 Route::post( 'open_jornada_user'                    , $controllers->tasa_c_two.'@store' );
 
@@ -82,3 +82,5 @@ Route::post( 'save-tipo-listin'  , $controllers->tine_one.'@store' );
 Route::get( 'tipo-listine-price' , $controllers->tine_one.'@config_price' );
 
 Route::post( 'save-tipo-price'   , $controllers->tine_two.'@store' );
+
+Route::get( 'listine-jornada-open' , $controllers->tine_two.'@vista_jornada_open' );

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\TasaSalida;
 
+use Carbon\Carbon;
 use App\TasaSalida;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Carbon\Carbon;
-
-
 
 class TasaSalidaController extends Controller
 {

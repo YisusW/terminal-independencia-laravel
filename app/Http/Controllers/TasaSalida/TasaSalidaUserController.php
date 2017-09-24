@@ -51,7 +51,7 @@ class TasaSalidaUserController extends Controller
 
             $error = 'No has Hecho cierre de la ultima jornada';
 
-            return redirect('open-jornada')->with('error' ,$error);
+            return redirect('open-jornada-tasa')->with('error' ,$error);
 
         }
 
@@ -67,13 +67,13 @@ class TasaSalidaUserController extends Controller
 
             $message = 'La Jornada Se Abrió de Manera Correcta';
 
-            return redirect('open-jornada')->with('message' ,$message);
+            return redirect('open-jornada-tasa')->with('message' ,$message);
 
         }else {
 
             $error = 'Usuario '.$user->name.' No Existe ó el precio no existe en la base de datos ';
 
-            return redirect('open-jornada')->with('error' , $error);
+            return redirect('open-jornada-tasa')->with('error' , $error);
 
         }
 

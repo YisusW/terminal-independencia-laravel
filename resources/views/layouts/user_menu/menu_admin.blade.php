@@ -47,7 +47,7 @@
 
                         <li><a href="{{ url('tasa-salida-config') }}">Asignar Pricio</a></li>
                         
-                        <li><a href="{{ url('open-jornada') }}">Abrir Jornada</a></li>
+                        <li><a href="{{ url('open-jornada-tasa') }}">Abrir Jornada</a></li>
                         
                         <li><a href="{{ url('jornada-opened') }}">Jornadas Abiertas</a></li>
 
@@ -67,7 +67,7 @@
 
                         <li><a href="{{ url('tipo-listine-price') }}">Asignar Precio</a></li>
 
-                        <li><a href="{{ url('open-jornada-litin') }}">Abrir Jornada</a></li>
+                        <li><a href="{{ url('listine-jornada-open') }}">Abrir Jornada</a></li>
 
                     </ul>                        
                     

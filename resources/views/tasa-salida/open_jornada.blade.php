@@ -23,40 +23,52 @@
                 @endif
                 
                 @if( isset($precio) )
-                <div class="col-md-8 col-md-offset-2">
                 
-                <form action="open_jornada_user" method="POST" accept-charset="utf-8">
+                
+                <form class="form-horizontal" action="open_jornada_user" method="POST" accept-charset="utf-8">
 
                 {{ csrf_field() }}
 
                   <div class="form-group">
 
-                    <label for="precio">Precio Activo:</label>
-                    <div class="input-group">
-                    <span class="input-group-addon">Bs.</span>
-                    <select id=precio class="form-control" name="price" >                            
+                    <label for="precio" class="col-md-4 control-label">Precio Activo:</label>
+                    
+                    <div class="col-md-6">
+                        <div class="input-group">
+                        <span class="input-group-addon">Bs.</span>
+                        <select id=precio class="form-control" name="price" >                            
 
-                            <option value="{{ $precio->id }}">{{ $precio->precio }}</option>
-                            
-                    </select>
+                                <option value="{{ $precio->id }}">{{ $precio->precio }}</option>
+                                
+                        </select>
 
+                        </div>
                     </div>
+
                   </div> 
                     
                   <div class="form-group">
-                    <label for="date">Fecha Jornada:</label>
-                  
-                    <input type="hidden" name="fecha_apertura_jornada" value="{{ $carbon->toDateString() }}">
-                  
-                    <input id="date"  type="date" class="form-control" readonly="true" value="{{ $fecha }}" >
-                  
-                  </div>                    
-                  
-                  <button type="submit" class="btn btn-primary">Abrir</button>
-                
 
+                    <label for="date" class="col-md-4 control-label">Fecha Jornada:</label>
+                    <div class="col-md-6">
+                        <input type="hidden" name="fecha_apertura_jornada" value="{{ $carbon->toDateString() }}">
+                      
+                        <input id="date"  type="date" class="form-control" readonly="true" value="{{ $fecha }}" >
+                    </div>
+                  </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="reset" class="btn btn-default">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    Abrir Jornada
+                                </button>
+                            </div>
+                        </div>
                 </form>
-                </div>
+               
                 @else
 
                     <div class="alert alert-warning" role="alert">

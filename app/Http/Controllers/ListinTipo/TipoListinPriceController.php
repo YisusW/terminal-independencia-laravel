@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ListinTipo;
 
+use Carbon\Carbon;
 use App\TipoListinPrice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -133,5 +134,15 @@ class TipoListinPriceController extends Controller
         //
     }
 
+    public function vista_jornada_open( Request $request ){
+
+        $listine = TipoListinPrice::where('status' , 't')->get();
+
+        $carbon = Carbon::now('America/Caracas');
+
+        $fecha =  $carbon->formatLocalized('%A %d %B %Y');
+        
+        return view('listine.jornada')->with(compact('listine' , 'fecha' , 'carbon'));
+    }
 
 }
