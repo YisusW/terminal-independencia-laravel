@@ -80,7 +80,7 @@ class TipoListinJornadaController extends Controller
 
     protected function procesar_ajax( $request ){
 
-        $validar = $this->validar_jornada( $request );
+        $validar = $this->validar_jornada( $request->all() );
 
                 if( $validar->fails() )           
                 return response()->json([ 'errors' => $validar->errors() ]); 
@@ -115,7 +115,8 @@ class TipoListinJornadaController extends Controller
     {
         //
         if( $request->ajax() ){
-            $this->procesar_ajax( $request->all() );
+            $this->procesar_ajax( $request );
+            exit();
         }
         $validar = $this->validar_jornada( $request->all() );
 
