@@ -41,7 +41,7 @@
                     <ul class="dropdown-menu" role="menu">
                                                         
                         <li><a href="{{ url('open-jornada-listine') }}">Abrir Jornada</a></li>
-                        <li><a href="#">Vender</a></li>
+                        <li><a href="{{ url('vender-jornada-listine') }}">Vender</a></li>
 
                     </ul>                        
                     

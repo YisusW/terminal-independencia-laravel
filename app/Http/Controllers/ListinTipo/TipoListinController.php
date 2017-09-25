@@ -109,9 +109,16 @@ class TipoListinController extends Controller
      * @param  \App\TipoListin  $tipoListin
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoListin $tipoListin)
+    public function show(Request $request,TipoListin $tipoListin , $descripcion)
     {
         //
+        $datos = $tipoListin->where( 'descripcion' , $descripcion )->get()->last();
+
+        $error = 'Datos No Encontrados';
+
+        if( count( $datos ) > 0 ) return view('tipo-listine.edit')->with('datos' , $datos);
+        else redirect('tipo-listine')->with('error');
+        
     }
 
     /**
@@ -123,6 +130,18 @@ class TipoListinController extends Controller
     public function edit(TipoListin $tipoListin)
     {
         //
+
+    }
+
+    public function validar_update( $datos = array() , $id ){
+
+        return  Validator::make( $datos , [
+
+            'nombre' => 'required|alpha_num|unique:tipo_listin,descripcion,'.$id,
+
+            'estatus' => 'required|string',
+
+        ] );
     }
 
     /**
@@ -132,9 +151,34 @@ class TipoListinController extends Controller
      * @param  \App\TipoListin  $tipoListin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoListin $tipoListin)
+    public function update(Request $request, TipoListin $tipoListin , $id)
     {
         //
+        $valid = $this->validar_update( $request->all() , $id );
+
+        if( $valid->fails() ){
+            
+            return redirect('tipo-listin/edit/'.$request->nombre)->withErrors( $valid->errors() );
+        }
+        
+        $tipoListin = $tipoListin->where( 'id' , $id )->get()->first();
+        
+        $status = ( $request->estatus == 'Activo'  ) ? true : false ;
+        $tipoListin->descripcion = $request->nombre;
+        $tipoListin->status = $status;
+        
+        if( $tipoListin->update() ){
+
+        $message = 'Registro Fue Actualizado correctamente';
+
+        return redirect('tipo-listin/edit/'.$request->nombre)->with(compact('message'));
+
+        }else{
+        $error = 'Este Registro falló en la actualización';
+
+        return redirect('tipo-listin/edit/'.$request->nombre)->with(compact('error'));
+        }
+
     }
 
     /**
@@ -151,6 +195,8 @@ class TipoListinController extends Controller
     public function config_price( Request $request )
     {       
         $tipo =  TipoListin::where( 'status' , 't' )->get([ 'id' , 'descripcion' , 'status' ]);
+
+        if( count( $tipo ) == 0 ) return view('listine.price');
 
         $listin_precio = \App\TipoListinPrice::orderBy( 'status' , 'desc' )
 

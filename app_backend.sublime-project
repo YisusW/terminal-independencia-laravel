@@ -12,6 +12,9 @@
 		},
 		{
 			"path": "vendor"
+		},
+		{
+			"path": "config"
 		}
 	]
 }

@@ -34,10 +34,10 @@
                 @endif
 
                 @if( isset($tasa) )
-                <div class="col-md-8 col-md-offset-2">
+               
 
                 
-                <form action="tasa-salida-report" method="POST" accept-charset="utf-8"  target="_blank">
+                <form class="form-horizontal" action="tasa-salida-report" method="POST" accept-charset="utf-8"  target="_blank">
 
                 
                     {{ csrf_field() }}
@@ -46,27 +46,29 @@
 
                   <div class="form-group">
 
-                    <label for="precio">Precio Activo:</label>
-                    <div class="input-group">
+                    <label for="precio" class="col-md-4 control-label">Precio Activo:</label>
+                    <div class="col-md-6">
+                        <div class="input-group">
 
-                    <input id="monto" type="text" class="form-control" readonly="true" value="{{ $tasa->tasaSalida()->get()->first()->precio }}">
-                    <span class="input-group-addon">Bs.</span>
+                        <input id="monto" type="text" class="form-control" readonly="true" value="{{ $tasa->tasaSalida()->get()->first()->precio }}">
+                        <span class="input-group-addon">Bs.</span>
 
+                        </div>
                     </div>
 
                   </div>
                     
                 
                   {{--  --}}
-                 
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4">                 
                   <button id="hacer_report" type="submit" class="btn btn-primary" value="tasa">Imprimir</button>
 
                   <a href="{{ url('cierre-jornada/'.Auth::user()->id.'/'.$tasa->id ) }}" class="btn btn-success" title="deseas cerrar la jornada?" role="button">Cerrar Jornada</a>
-                                                    
+                    </div>
+                </div>                             
                 </form>
 
-
-                </div>
                 @elseif( session('option_reported') )
 
                     <div class="alert alert-info" role="alert">

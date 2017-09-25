@@ -23,6 +23,8 @@
 
                 @endif
 
+        @if( isset($tipo) )
+
                     <form class="form-horizontal" method="POST" action="{{ url('save-tipo-price') }}">
                         
                         {{ csrf_field() }}
@@ -140,7 +142,13 @@
                   
                 </div>
 
+        @else
 
+            <div class="alert alert-warning" role="alert">
+                <strong>Atención!</strong> Para poder habilitar este módulo debes registrar un tipo de listín con anterioridad
+            </div>
+            <a  class="btn btn-warning" href="{{ url('tipo-listine') }}" role="button">Ir al Módulo Tipo Listín</a>
+        @endif
 
                 </div>
             </div>

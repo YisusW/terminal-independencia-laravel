@@ -15,6 +15,19 @@
 </head>
 <body>
     <div id="app">
+
+        @if( Auth::user() )
+        @if( Auth::user()->privilegies == 'A' )
+
+                @include('layouts.user_menu.menu_admin')
+
+        @else
+            
+                @include('layouts.user_menu.menu_common')
+        @endif
+
+        @yield('content')
+        @else
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -69,6 +82,7 @@
                 </div>
             </div>
         </nav>
+        @endif
 
         @yield('content')
 

@@ -22,22 +22,21 @@
                     </div>
 
                 @endif
-
-                    <form class="form-horizontal" method="POST" action="" accept-charset="utf-8">
+                @if( isset( $listine ) )
+                @if( count( $listine ) > 0 )
+                    <form class="form-horizontal" method="POST" action="{{ url('open-jornada-listine') }}" accept-charset="utf-8">
                         
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('tipo_listine') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('listin') ? ' has-error' : '' }}">
                             <label for="tipo_listine" class="col-md-4 control-label">Precio Listin Activo:</label>
 
                             <div class="col-md-6">
                                 
                                 <div class="input-group">
                                 <span class="input-group-addon">Bs.</span>
-                                <select class="form-control" name="tipo_listine" required  autofocus>
+                                <select class="form-control" name="listin" required >
                                     
-                                   
-                                    @if( isset( $listine ) )
                                         @foreach( $listine as $listin )
                                         <option value="{{ $listin->id }}" >
                                             {{ 
@@ -47,7 +46,7 @@
                                             }}
                                         </option>
                                         @endforeach                                   
-                                    @endif
+                                    
                                 </select>
                                 </div>
                                 @if ($errors->has('tipo_listine'))
@@ -79,6 +78,13 @@
                             </div>
                         </div>
                     </form>
+                
+                @else 
+                    <div class="alert alert-info" role="alert">
+                        <strong>Importante!</strong> Para Hacer la apertura de una jornada es necesario hacer las configuraciones necesarias previamente
+                    </div>        
+                @endif
+                @endif
 
                 </div>
             </div>

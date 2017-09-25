@@ -40,7 +40,7 @@ CREATE TABLE tipo_listin_jornada(
 
 );
 
-CREATE TABLE  tipo_listin_jornada_tipo_listin_price_date(
+CREATE TABLE  tipo_listin_jornada_tipo_listin_price(
 
 	id BIGSERIAL PRIMARY KEY NOT NULL,
 	id_tipo_listin_jornada bigint NOT NULL,
@@ -61,13 +61,13 @@ CREATE TABLE  tipo_listin_jornada_tipo_listin_price_date(
 CREATE TABLE listin_count(
 
 	id BIGSERIAL PRIMARY KEY NOT NULL,
-	id_tipo_listin_jornada_tipo_listin_price_date BIGINT NOT NULL,
+	id_tipo_listin_jornada_tipo_listin_price BIGINT NOT NULL,
 	created_at timestamp,
 	updated_at timestamp,
 
-	CONSTRAINT foreign_key_listin_count_jornadas_agregadas_bla FOREIGN KEY ( id_tipo_listin_jornada_tipo_listin_price_date )
+	CONSTRAINT foreign_key_listin_count_jornadas_agregadas_bla FOREIGN KEY ( id_tipo_listin_jornada_tipo_listin_price )
 
-	REFERENCES tipo_listin_jornada_tipo_listin_price_date( id ) ON DELETE CASCADE ON UPDATE CASCADE
+	REFERENCES tipo_listin_jornada_tipo_listin_price( id ) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE  tasa_salida(

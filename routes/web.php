@@ -37,7 +37,8 @@ $controllers =  (object) array(
 	| - Controladores de la gestion de ListinTipo
 	---------------------------------------------------------------*/
 	'tine_one' => 'ListinTipo\TipoListinController', 
-	'tine_two' => 'ListinTipo\TipoListinPriceController'
+	'tine_two' => 'ListinTipo\TipoListinPriceController',
+	'tine_tre' => 'ListinTipo\TipoListinJornadaController'
 );
 
 //  SOLO EL ADMINISTRADOR ACCEDE ...
@@ -77,10 +78,22 @@ Route::get( 'jornada-closed' , $controllers->tasa_c_tre.'@endindex' );
 
 Route::get( 'tipo-listine'       , $controllers->tine_one.'@index' );
 
+Route::get( 'tipo-listin/edit/{descripcion}' , $controllers->tine_one.'@show' );
+
 Route::post( 'save-tipo-listin'  , $controllers->tine_one.'@store' );
 
+Route::put('update-tipo-listin/{id}' , $controllers->tine_one.'@update');
+
 Route::get( 'tipo-listine-price' , $controllers->tine_one.'@config_price' );
+
+// SE TRATA DE OTRA PARTE DE LISTIN PERO DE ASIGNACION DE PRECIOS ETC
 
 Route::post( 'save-tipo-price'   , $controllers->tine_two.'@store' );
 
 Route::get( 'open-jornada-listine' , $controllers->tine_two.'@vista_jornada_open' );
+
+// GUARDAR LA PETICION DE GUARDAR LAS JORNADAS ES DECIR ABRIR JORNADAS DE Listins
+
+Route::post( 'open-jornada-listine' , $controllers->tine_tre.'@store' );
+
+Route::get( 'vender-jornada-listine' , $controllers->tine_tre.'@index' );
