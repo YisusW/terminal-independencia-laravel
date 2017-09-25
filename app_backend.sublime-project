@@ -11,10 +11,10 @@
 			"path": "database"
 		},
 		{
-			"path": "vendor"
+			"path": "config"
 		},
 		{
-			"path": "config"
+			"path": "vendor"
 		}
 	]
 }

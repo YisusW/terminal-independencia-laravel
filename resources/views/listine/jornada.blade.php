@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -48,12 +49,29 @@
                                         @endforeach                                   
                                     
                                 </select>
+
                                 </div>
                                 @if ($errors->has('tipo_listine'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('tipo_listine') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add" class="col-md-4 control-label">Agregar listin</label>
+                            <div class="col-md-6">
+
+                            <button id="add" class="btn btn-success"
+                            onclick="event.preventDefault();
+                            alert(document.getElementById('save-listine-jornada'))
+                                    document.getElementById('save-listine-jornada').click();"
+                            type="button" 
+                            title="Asignará el listin seleccionado para la jornada">Agregar</button>
+
+                            <a id="save-listine-jornada" href="{{ url('save-listine-jornada') }}" style="display:none"></a>
+
                             </div>
                         </div>
 
@@ -72,6 +90,7 @@
                                 <button type="reset" class="btn btn-default">
                                     Cancelar
                                 </button>
+                                
                                 <button type="submit" class="btn btn-primary">
                                     Abrir Jornada
                                 </button>
@@ -91,5 +110,7 @@
         </div>
     </div>
 </div>
+
+
 @endsection
 

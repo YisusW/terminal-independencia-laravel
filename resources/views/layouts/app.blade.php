@@ -14,8 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        
+    
+        <div id="app">
 
         @if( Auth::user() && Auth::user()->privilegies == 'A' )
 
@@ -27,8 +27,9 @@
         @endif
 
         @yield('content')
-    </div>
-
+   
+        
+        </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
