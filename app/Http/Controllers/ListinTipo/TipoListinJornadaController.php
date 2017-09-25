@@ -78,6 +78,33 @@ class TipoListinJornadaController extends Controller
         ]);
     }
 
+    protected function procesar_ajax( $request ){
+
+        $validar = $this->validar_jornada( $request );
+
+                if( $validar->fails() )           
+                return response()->json([ 'errors' => $validar->errors() ]); 
+        $jornada = new TipoListinJornada;
+
+        $jornada->id_user = \Auth::user()->id ;
+        $jornada->description = 'Abierta';
+        $jornada->fecha = $request->fecha_apertura_jornada;
+
+
+        if( $jornada->save() && $this->create( $jornada , (int) $request->listin ) ):
+            
+            $message = 'La Jornada Se Abrió Correctamente';
+            return response()->json([ 'message' => $message ]);
+
+        else:
+
+            $error = 'La Jornada No se pudo Abrir, ocurrió un error';
+            return response()->json([ 'error' => $error ]);
+
+        endif;
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -87,7 +114,9 @@ class TipoListinJornadaController extends Controller
     public function store(Request $request)
     {
         //
-        
+        if( $request->ajax() ){
+            $this->procesar_ajax( $request->all() );
+        }
         $validar = $this->validar_jornada( $request->all() );
 
         if( $validar->fails() )            

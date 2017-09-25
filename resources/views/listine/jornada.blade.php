@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,6 +9,10 @@
                 <div class="panel-heading">Jornada Listine</div>
 
                 <div class="panel-body">
+    
+                    <div id="message" class="alert alert-info" role="alert" style="display:none">
+                        
+                    </div>
 
 
                 @if( session('message') )
@@ -35,7 +40,7 @@
                                 
                                 <div class="input-group">
                                 <span class="input-group-addon">Bs.</span>
-                                <select class="form-control" name="listin" required >
+                                <select id="listin" class="form-control" name="listin" required >
                                     
                                         @foreach( $listine as $listin )
                                         <option value="{{ $listin->id }}" >
@@ -48,6 +53,7 @@
                                         @endforeach                                   
                                     
                                 </select>
+
                                 </div>
                                 @if ($errors->has('tipo_listine'))
                                     <span class="help-block">
@@ -58,12 +64,24 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="add" class="col-md-4 control-label">Agregar listin</label>
+                            <div class="col-md-6">
+
+                            <button id="add" class="btn btn-success"
+                            type="button" 
+                            onclick="procesar_add()"
+                            title="Asignará el listin seleccionado para la jornada">Agregar</button>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                         
                             <label for="date" class="col-md-4 control-label">Fecha Jornada:</label>
                             <div class="col-md-6">
-                            <input type="hidden" name="fecha_apertura_jornada" value="{{ $carbon->toDateString() }}">
+                            <input id="fecha_apertura_jornada" type="hidden" name="fecha_apertura_jornada" value="{{ $carbon->toDateString() }}">
                           
-                            <input id="date"  type="date" class="form-control" readonly="true" value="{{ $fecha }}" >
+                            <input   type="date" class="form-control" readonly="true" value="{{ $fecha }}" >
                             </div>
                         </div>
 
@@ -72,6 +90,7 @@
                                 <button type="reset" class="btn btn-default">
                                     Cancelar
                                 </button>
+                                
                                 <button type="submit" class="btn btn-primary">
                                     Abrir Jornada
                                 </button>
@@ -91,5 +110,42 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+
+   function agregarlistineJornada(listin , token){
+
+    var date = $("#fecha_apertura_jornada").val();
+
+        $.ajax({
+            url  : 'open-jornada-listine',
+            type : 'POST',
+            data : { listin: listin , _token : token , fecha_apertura_jornada : date },
+        })
+        .done(function( response ) {
+            console.log(response);
+            
+                $("#message").fadeIn('slow');
+                $("#message").html('<strong>Bien hecho!</strong>'+response)
+        
+
+        })
+        .fail(function(response) {
+            console.log("error");
+        });
+        
+    }
+    function procesar_add () {
+        
+        var token = $('meta[name="csrf-token"]').attr('content');
+        var listin = $("#listin").val();
+        
+        agregarlistineJornada(listin , token);
+    };
+
+ 
+
+</script> 
 @endsection
 
