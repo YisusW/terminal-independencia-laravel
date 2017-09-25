@@ -49,14 +49,12 @@ class ListinCountController extends Controller
 
         if( $count->save() ){
             
-            $numero = ListineCount::where('id_tasa_salida_date' ,$count->id_tasa_salida_date  )->count();
+            //$numero = ListineCount::where('id_tipo_listin_jornada_tipo_listin_price' ,$count->id_tipo_listin_jornada_tipo_listin_price  )->count();
 
-            $view =  \View::make('tasa-salida.pdf.ticket-salida', compact('count' , 'numero'))->render();
+            $view =  \View::make('listine.pdf.listine-ticked')->render();
             
             $pdf = \App::make('dompdf.wrapper');
-                               
-            $pdf->setPaper($paper_size); 
-            
+                                           
             $pdf->loadHTML($view);
 
             return $pdf->stream();            
