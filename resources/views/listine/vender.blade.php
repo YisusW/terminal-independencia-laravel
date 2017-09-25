@@ -21,34 +21,48 @@
                     </div>
 
                 @endif
-           
                 
-                <form class="form-horizontal" action="tasa-salida-report" method="POST" accept-charset="utf-8"  target="_blank">
+                <div class="row">
 
-                  <div class="form-group">
+                @foreach ($listine as $key => $element)
 
-                    <label for="precio" class="col-md-4 control-label">Precio Activo:</label>
-                    <div class="col-md-6">
-                        <div class="input-group">
+                    {{-- expr --}}
+                    
+                      
+                      <div class="col-sm-6 col-md-4">
+                      
+                        <div class="thumbnail">
+                      
+                          <img src="{{ url('/imagenes/LOGO.png') }}" alt="">
+                      
+                          <div class="caption">
+                      
+                            <h3>Bs. {{ $element->listine()->get()->first()->precio .'-'.  $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h3>
+                      
+                            <p>...</p>
+                      
+                            <p><a onclick="event.preventDefault();
+                                             document.getElementById('count-of-listine{{ $key }}').submit();" href="#" class="btn btn-primary" role="button" >Imprimir</a></p>
+                            
+                            <form id="count-of-listine{{ $key }}" action="{{ url('contar-listine') }}" method="post" accept-charset="utf-8" target="_blank" style="display:none">
+                                
+                                {{ csrf_field() }}
+                                <input type="hidden" name="id_listine_jornada" value="{{ $element->id }}">
 
-                        <input id="monto" type="text" class="form-control" readonly="true" value="">
-                        <span class="input-group-addon">Bs.</span>
+                            </form>
+
+
+                          </div>                      
 
                         </div>
-                    </div>
-
-                  </div>
                     
-                
-                  {{--  --}}
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-4">                 
-                    <button id="hacer_report" type="submit" class="btn btn-primary" value="tasa">Imprimir</button>
+                      </div>                                          
+                    
+                @endforeach
+                </div>
 
-                    <a href="" class="btn btn-success" title="deseas cerrar la jornada?" role="button">Cerrar Jornada</a>
-                    </div>
-                </div>                             
-                </form>
+
+
                
 {{--                 @else
 

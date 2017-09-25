@@ -38,7 +38,8 @@ $controllers =  (object) array(
 	---------------------------------------------------------------*/
 	'tine_one' => 'ListinTipo\TipoListinController', 
 	'tine_two' => 'ListinTipo\TipoListinPriceController',
-	'tine_tre' => 'ListinTipo\TipoListinJornadaController'
+	'tine_tre' => 'ListinTipo\TipoListinJornadaController',
+	'tine_fou' => 'ListinTipo\ListinCountController'
 );
 
 //  SOLO EL ADMINISTRADOR ACCEDE ...
@@ -97,3 +98,6 @@ Route::get( 'open-jornada-listine' , $controllers->tine_two.'@vista_jornada_open
 Route::post( 'open-jornada-listine' , $controllers->tine_tre.'@store' );
 
 Route::get( 'vender-jornada-listine' , $controllers->tine_tre.'@index' );
+
+Route::post('contar-listine' , $controllers->tine_fou.'@store' );
+

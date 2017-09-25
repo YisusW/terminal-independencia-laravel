@@ -32,9 +32,12 @@ class TipoListinJornadaController extends Controller
         ->where( 'id_user' , \Auth::user()->id )
         ->get()->first();
 
-        if( count( $jornada )>0 ):
+        $listine = $jornada->listines_jornadas()->get() ;
+        
+        
+        if( count( $jornada ) > 0 ):
 
-             return view('listine.vender')->with('jornada') ;
+             return view('listine.vender')->with(compact('jornada', 'listine')) ;
          else:
 
             $message  = 'No hay jornadas abiertas' ;
@@ -78,6 +81,8 @@ class TipoListinJornadaController extends Controller
         ]);
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -92,13 +97,28 @@ class TipoListinJornadaController extends Controller
 
         if( $validar->fails() )            
                 return redirect('open-jornada-listine')->withErrors( $validar->errors() );
+
+
         
-        
+        if( $this->show( ) ):
+
+            $jornada = $this->get_jornada_activa();
+
+            if( $this->create( $jornada , (int) $request->listin ) ){
+
+
+            $message = 'La Jornada Se Abrió Correctamente';
+            return redirect('open-jornada-listine')->with(compact('message'));
+
+            }
+
+        endif;
+
         $jornada = new TipoListinJornada;
 
         $jornada->id_user = \Auth::user()->id ;
         $jornada->description = 'Abierta';
-        $jornada->fecha = $request->fecha_apertura_jornada;
+        $jornada->fecha = $request->fecha_apertura_jornada;        
 
         if( $jornada->save() && $this->create( $jornada , (int) $request->listin ) ):
             
@@ -112,8 +132,16 @@ class TipoListinJornadaController extends Controller
 
         endif;
 
+
         
     }   
+    
+    protected function get_jornada_activa(){
+
+        return TipoListinJornada::where( 'description' , 'Abierta' )
+        ->where( 'id_user' , \Auth::user()->id )
+        ->get()->first();
+    }
 
     /**
      * Display the specified resource.
@@ -121,9 +149,17 @@ class TipoListinJornadaController extends Controller
      * @param  \App\TipoListinJornada  $tipoListinJornada
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoListinJornada $tipoListinJornada)
+    public function show()
     {
         //
+        
+        $jornada = TipoListinJornada::where( 'description' , 'Abierta' )
+        ->where( 'id_user' , \Auth::user()->id )
+        ->get()->first();
+
+        if( count( $jornada ) > 0 )
+            return true;
+        else return false;
     }
 
     /**

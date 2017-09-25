@@ -12,4 +12,15 @@ class TipoListinJornadaPrice extends Model
 
         setlocale(LC_ALL, "es_VE.UTF-8");    	
     }
+
+    /**
+     * TipoListinJornadaPrice belongs to Listine.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function listine()
+    {
+    	// belongsTo(RelatedModel, foreignKey = listine_id, keyOnRelatedModel = id)
+    	return $this->belongsTo(TipoListinPrice::class , 'id_tipo_listin_price' , 'id');
+    }
 }

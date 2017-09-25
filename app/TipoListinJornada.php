@@ -13,4 +13,18 @@ class TipoListinJornada extends Model
 
         setlocale(LC_ALL, "es_VE.UTF-8");    	
     }
+
+
+	/**
+	 * TipoListinJornada has many Tipo.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function listines_jornadas()
+	{
+		// hasMany(RelatedModel, foreignKeyOnRelatedModel = tipoListinJornada_id, localKey = id)
+		return $this->hasMany(TipoListinJornadaPrice::class , 'id_tipo_listin_jornada' , 'id');
+	}
+
+
 }
