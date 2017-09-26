@@ -34,7 +34,7 @@
                       
                         <div class="thumbnail">
                       
-                          <img src="{{ url('/imagenes/LOGO.png') }}" alt="">
+                          <img src="{{ url('/imagenes/listin-icon.png') }}" alt="">
                       
                           <div class="caption">
                       
