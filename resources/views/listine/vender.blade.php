@@ -30,15 +30,17 @@
                     {{-- expr --}}
                     
                       
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-8 col-md-6">
                       
                         <div class="thumbnail">
                       
                           <img src="{{ url('/imagenes/listin-icon.png') }}" alt="">
                       
                           <div class="caption">
-                      
-                            <h3>Bs. {{ $element->listine()->get()->first()->precio .'-'.  $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h3>
+                            
+                            <h2>Tipo Listin {{ $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h2>
+                            
+                            <h3>Bs. {{ $element->listine()->get()->first()->precio }}</h3>
                       
                             <p>...</p>
                       

@@ -64,7 +64,7 @@
       <table>
 
           <tr>
-            <td width="40%">
+            <td>
               {{ $listin->tipoListin()->get()->first()->descripcion }} - N° {{ $numero }}
             </td>
             
