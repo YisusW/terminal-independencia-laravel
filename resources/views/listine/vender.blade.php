@@ -38,8 +38,9 @@
                       
                           <div class="caption">
                             
-                            <h2>Tipo Listin</h2>
-                            <h3>Bs. {{ $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion .'-'. $element->listine()->get()->first()->precio .'-'.  }}</h3>
+                            <h2>Tipo Listin {{ $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h2>
+                            
+                            <h3>Bs. {{ $element->listine()->get()->first()->precio }}</h3>
                       
                             <p>...</p>
                       
