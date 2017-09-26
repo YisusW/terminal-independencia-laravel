@@ -150,7 +150,27 @@ class TipoListinPriceController extends Controller
 
         $fecha =  $carbon->formatLocalized('%A %d %B %Y');
         
-        return view('listine.jornada')->with(compact('listine' , 'fecha' , 'carbon'));
+
+        $jornada = \App\TipoListinJornada::where( 'description' , 'Abierta' )
+        ->where( 'id_user' , \Auth::user()->id )
+        ->get()->first();
+        
+        
+        if( count( $jornada ) > 0 ):
+
+            $listinei = $jornada->listines_jornadas()->get() ;
+ 
+
+            return view('listine.jornada')->with(compact('listine' , 'fecha' , 'carbon' , 'listinei'));
+            
+
+        else:
+            
+            return view('listine.jornada')->with(compact('listine' , 'fecha' , 'carbon'));
+
+        endif;
+
+        
     }
 
 }

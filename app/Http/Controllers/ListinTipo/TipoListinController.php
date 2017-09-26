@@ -54,6 +54,14 @@ class TipoListinController extends Controller
         ] );
     }
 
+    public function agregarbyajax($value)
+    {
+        # code...
+
+
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -63,6 +71,8 @@ class TipoListinController extends Controller
     public function store(Request $request)
     {
         //
+
+
         $valid = $this->validar_registro( $request->all() );
 
         if( $valid->fails() ){

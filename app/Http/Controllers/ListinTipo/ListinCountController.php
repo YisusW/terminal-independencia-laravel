@@ -49,9 +49,11 @@ class ListinCountController extends Controller
 
         if( $count->save() ){
             
-            //$numero = ListineCount::where('id_tipo_listin_jornada_tipo_listin_price' ,$count->id_tipo_listin_jornada_tipo_listin_price  )->count();
+            $numero = ListineCount::where('id_tipo_listin_jornada_tipo_listin_price' ,$count->id_tipo_listin_jornada_tipo_listin_price  )->count();
 
-            $view =  \View::make('listine.pdf.listine-ticked')->render();
+            $listin = $count->tipoListinJornadaPrice()->get()->first()->listine()->get()->first();
+
+            $view =  \View::make('listine.pdf.listine-ticked' , compact( 'listin','numero') )->render();
             
             $pdf = \App::make('dompdf.wrapper');
                                            

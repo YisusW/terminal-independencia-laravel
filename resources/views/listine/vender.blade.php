@@ -22,8 +22,9 @@
 
                 @endif
                 
+                
+                @if(isset($listine))
                 <div class="row">
-
                 @foreach ($listine as $key => $element)
 
                     {{-- expr --}}
@@ -60,6 +61,19 @@
                     
                 @endforeach
                 </div>
+
+                <button type="button" class="btn btn-success btn-lg btn-block">Hacer Cierre de Jornada</button>
+
+                @else
+                
+                    <div class="col-sm-12">
+                    <div class="alert alert-info" role="alert">
+                        <strong>Importante!</strong> Debes primero hacer la apertura de jornada
+                    </div>
+                    </div>
+                
+                @endif
+                
 
 
 

@@ -32,10 +32,12 @@ class TipoListinJornadaController extends Controller
         ->where( 'id_user' , \Auth::user()->id )
         ->get()->first();
 
-        $listine = $jornada->listines_jornadas()->get() ;
+        
         
         
         if( count( $jornada ) > 0 ):
+
+            $listine = $jornada->listines_jornadas()->get() ;
 
              return view('listine.vender')->with(compact('jornada', 'listine')) ;
          else:
@@ -77,10 +79,48 @@ class TipoListinJornadaController extends Controller
 
         return Validator::make( $datos , [
             'listin' => 'required|integer|exists:tipo_listin_price,id',
+
             'fecha_apertura_jornada' => 'required|date',
         ]);
     }
 
+
+    function function_guardar_jornada_listin($request){
+
+        if( $this->show( ) ):
+
+            $jornada = $this->get_jornada_activa();
+
+            if( $this->create( $jornada , (int) $request->listin ) ){
+
+
+            $message = 'La Jornada Se Abrió Correctamente';
+            return array( 'message' => $message );
+
+            }
+
+        endif;
+
+        $jornada = new TipoListinJornada;
+
+        $jornada->id_user = \Auth::user()->id ;
+        $jornada->description = 'Abierta';
+        $jornada->fecha = $request->fecha_apertura_jornada;        
+
+        if( $jornada->save() && $this->create( $jornada , (int) $request->listin ) ):
+            
+            $message = 'La Jornada Se Abrió Correctamente';
+            
+            return array( 'message' => $message );
+
+        else:
+
+            $error = 'La Jornada No se pudo Abrir, ocurrió un error';
+            return array( 'error' => $error );
+
+        endif;
+
+    }
 
 
     /**
@@ -92,14 +132,36 @@ class TipoListinJornadaController extends Controller
     public function store(Request $request)
     {
         //
+
+        if( $request->ajax() ){
+
+            $resul = (object) $this->function_guardar_jornada_listin( $request );
+
+
+            return response()->json(['response' , $resul ]);
+        }
         
         $validar = $this->validar_jornada( $request->all() );
 
-        if( $validar->fails() )            
+        if( $validar->fails() )          
                 return redirect('open-jornada-listine')->withErrors( $validar->errors() );
 
-
+        $resul = (object) $this->function_guardar_jornada_listin( $request );
         
+
+        if( isset($resul->error) ):
+
+            $error = $resul->error;
+
+            return redirect('open-jornada-listine')->with(compact('error'));
+        
+        elseif( isset($resul->message) ):
+
+            $message = $resul->message;
+
+            return redirect('open-jornada-listine')->with(compact('message'));
+        endif;
+
         if( $this->show( ) ):
 
             $jornada = $this->get_jornada_activa();

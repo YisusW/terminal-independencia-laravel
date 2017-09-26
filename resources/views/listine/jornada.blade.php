@@ -14,6 +14,9 @@
                         
                     </div>
 
+                    <div id="error" class="alert alert-danger" role="alert" style="display:none">
+                        
+                    </div>
 
                 @if( session('message') )
 
@@ -100,6 +103,40 @@
                             </div>
                         </div>
                     </form>
+
+                    @if(isset($listinei))
+               
+                    <hr>
+                    <h3 style="text-align: center" >Listín Preparado</h3>
+                    <hr>
+
+
+                    <div class="row">
+
+                    @foreach ($listinei as $key => $element)
+
+                      <div class="col-sm-6 col-md-4">
+                      
+                        <div class="thumbnail">
+                      
+                          <img src="{{ url('/imagenes/LOGO.png') }}" alt="">
+                      
+                          <div class="caption">
+                      
+                            <h3>Bs. {{ $element->listine()->get()->first()->precio .'-'.  $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h3>
+                      
+                            <p>...</p>
+                      
+
+                          </div>                      
+
+                        </div>
+
+                      </div>
+                    @endforeach
+                    </div>
+
+                    @endif
                 
                 @else 
                     <div class="alert alert-info" role="alert">
@@ -129,8 +166,20 @@
         .done(function( response ) {
             console.log(response);
             
+            if( response.error ){
+
+                $("#message").fadeOut('slow');
+                $("#error").fadeIn('slow');
+                $("#error").html('<strong>Bien hecho!</strong>'+response.error)
+
+            }else if( response.message )
+
+            { 
+                $("#error").fadeOut('slow');
                 $("#message").fadeIn('slow');
-                $("#message").html('<strong>Bien hecho!</strong>'+response)
+                $("#message").html('<strong>Bien hecho!</strong>'+response.message)
+
+            }
         
 
         })
