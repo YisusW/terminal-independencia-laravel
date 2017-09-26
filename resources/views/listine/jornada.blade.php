@@ -115,17 +115,17 @@
 
                     @foreach ($listinei as $key => $element)
 
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-6 col-md-6">
                       
                         <div class="thumbnail">
                       
-                          <img src="{{ url('/imagenes/LOGO.png') }}" alt="">
+                          <img src="{{ url('/imagenes/listin-icon.png') }}" style="width: auto;height: auto">
                       
                           <div class="caption">
                       
-                            <h3>Bs. {{ $element->listine()->get()->first()->precio .'-'.  $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h3>
-                      
-                            <p>...</p>
+                            <h2>Tipo Listin {{ $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h2>
+                            
+                            <h3>Bs. {{ $element->listine()->get()->first()->precio }}</h3>
                       
 
                           </div>                      
@@ -152,7 +152,6 @@
 </div>
 
 <script type="text/javascript">
-
 
    function agregarlistineJornada(listin , token){
 

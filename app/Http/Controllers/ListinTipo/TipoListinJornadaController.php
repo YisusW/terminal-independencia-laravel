@@ -162,41 +162,78 @@ class TipoListinJornadaController extends Controller
             return redirect('open-jornada-listine')->with(compact('message'));
         endif;
 
-        if( $this->show( ) ):
+        // if( $this->show( ) ):
 
-            $jornada = $this->get_jornada_activa();
+        //     $jornada = $this->get_jornada_activa();
 
-            if( $this->create( $jornada , (int) $request->listin ) ){
+        //     if( $this->create( $jornada , (int) $request->listin ) ){
 
 
-            $message = 'La Jornada Se Abrió Correctamente';
-            return redirect('open-jornada-listine')->with(compact('message'));
+        //     $message = 'La Jornada Se Abrió Correctamente';
+        //     return redirect('open-jornada-listine')->with(compact('message'));
 
-            }
+        //     }
 
-        endif;
+        // endif;
 
-        $jornada = new TipoListinJornada;
+        // $jornada = new TipoListinJornada;
 
-        $jornada->id_user = \Auth::user()->id ;
-        $jornada->description = 'Abierta';
-        $jornada->fecha = $request->fecha_apertura_jornada;        
+        // $jornada->id_user = \Auth::user()->id ;
+        // $jornada->description = 'Abierta';
+        // $jornada->fecha = $request->fecha_apertura_jornada;        
 
-        if( $jornada->save() && $this->create( $jornada , (int) $request->listin ) ):
+        // if( $jornada->save() && $this->create( $jornada , (int) $request->listin ) ):
             
-            $message = 'La Jornada Se Abrió Correctamente';
-            return redirect('open-jornada-listine')->with(compact('message'));
+        //     $message = 'La Jornada Se Abrió Correctamente';
+        //     return redirect('open-jornada-listine')->with(compact('message'));
+
+        // else:
+
+        //     $error = 'La Jornada No se pudo Abrir, ocurrió un error';
+        //     return redirect('open-jornada-listine')->with(compact('error'));
+
+        // endif;
+        
+    }   
+
+    public function cerrar_jornada( Request $request ){
+
+        $jorn = TipoListinJornada::where( 'id' , (int) $request->jorna )
+        ->where( 'id_user' ,'=', \Auth::user()->id  )
+        ->get()
+        ->first();
+
+        if( $jorn ):
+
+            $jorn->description = 'Cerrada';
+
+            if ( $jorn->update() ):
+        
+        $message = 'Bien la jornada Fué Cerrada Correctamente';
+
+        return redirect('vender-jornada-listine')->with(compact('message')); 
+
+            else:
+
+                $error = 'Ocurrió un error al cerrar la jornada';
+
+                return redirect('vender-jornada-listine')->with(compact('error')); 
+
+            endif; 
 
         else:
 
-            $error = 'La Jornada No se pudo Abrir, ocurrió un error';
-            return redirect('open-jornada-listine')->with(compact('error'));
+        $error = 'Estos datos no se encuentran en nuestra base de datos';
+
+        return redirect('vender-jornada-listine')->with(compact('error')); 
+
+
 
         endif;
 
+    }
 
-        
-    }   
+
     
     protected function get_jornada_activa(){
 
@@ -224,37 +261,7 @@ class TipoListinJornadaController extends Controller
         else return false;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\TipoListinJornada  $tipoListinJornada
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TipoListinJornada $tipoListinJornada)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TipoListinJornada  $tipoListinJornada
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, TipoListinJornada $tipoListinJornada)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\TipoListinJornada  $tipoListinJornada
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TipoListinJornada $tipoListinJornada)
-    {
-        //
-    }
+
 }

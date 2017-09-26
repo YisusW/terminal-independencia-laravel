@@ -77,6 +77,8 @@ Route::get( 'jornada-closed' , $controllers->tasa_c_tre.'@endindex' );
 //  -  GESTION DE RUTAS PARA LA ORGANIZACION DE LOS TIPOS DE LISTINES |
 //---------------------------------------------------------------------
 
+#	-TipoListinController
+
 Route::get( 'tipo-listine'       , $controllers->tine_one.'@index' );
 
 Route::get( 'tipo-listin/edit/{descripcion}' , $controllers->tine_one.'@show' );
@@ -89,15 +91,27 @@ Route::get( 'tipo-listine-price' , $controllers->tine_one.'@config_price' );
 
 // SE TRATA DE OTRA PARTE DE LISTIN PERO DE ASIGNACION DE PRECIOS ETC
 
+#	-TipoListinPriceController
+
 Route::post( 'save-tipo-price'   , $controllers->tine_two.'@store' );
 
 Route::get( 'open-jornada-listine' , $controllers->tine_two.'@vista_jornada_open' );
 
 // GUARDAR LA PETICION DE GUARDAR LAS JORNADAS ES DECIR ABRIR JORNADAS DE Listins
 
+#	-TipoListinJornadaController
+
 Route::post( 'open-jornada-listine' , $controllers->tine_tre.'@store' );
 
 Route::get( 'vender-jornada-listine' , $controllers->tine_tre.'@index' );
 
+Route::post('cierre-jornada-listine' , $controllers->tine_tre.'@cerrar_jornada' );
+
+// GUARDAR LA PETICION DE GUAdar CUANDO SE QUIERE VENDER UN LISTINE
+
+#	-ListinCountController
+
 Route::post('contar-listine' , $controllers->tine_fou.'@store' );
+
+
 

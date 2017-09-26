@@ -30,20 +30,18 @@
                     {{-- expr --}}
                     
                       
-                      <div class="col-sm-8 col-md-6">
+                      <div class="col-sm-6 col-md-6">
                       
                         <div class="thumbnail">
                       
-                          <img src="{{ url('/imagenes/listin-icon.png') }}" alt="">
+                          <img src="{{ url('/imagenes/listin-icon.png') }}" style="width: auto;height: auto">
                       
                           <div class="caption">
                             
                             <h2>Tipo Listin {{ $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</h2>
                             
-                            <h3>Bs. {{ $element->listine()->get()->first()->precio }}</h3>
-                      
-                            <p>...</p>
-                      
+                            <h3>Bs. {{ str_replace('.00', ',00', $element->listine()->get()->first()->precio) }}</h3>
+                                            
                             <p><a onclick="event.preventDefault();
                                              document.getElementById('count-of-listine{{ $key }}').submit();" href="#" class="btn btn-primary" role="button" >Imprimir</a></p>
                             
@@ -64,7 +62,24 @@
                 @endforeach
                 </div>
 
-                <button type="button" class="btn btn-success btn-lg btn-block">Hacer Cierre de Jornada</button>
+                <button id="Cerrar_jornada" 
+                type="button" 
+                class="btn btn-success btn-lg btn-block"
+                onclick="event.preventDefault();
+                                document.getElementById('cierre-jorn').submit();""
+                >Hacer Cierre de Jornada</button>
+
+                <form id="cierre-jorn"  action="{{ url('cierre-jornada-listine') }}" method="POST" accept-charset="utf-8" style="display:none">
+                                
+                    {{ csrf_field() }}
+
+                    @if( isset($jornada) )
+
+                    <input type="hidden" name="jorna" value="{{ $jornada->id }}">
+                    
+                    @endif
+
+                </form>
 
                 @else
                 
@@ -94,4 +109,18 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+       
+       $("#Cerrar_jornada"),click(function(event) {
+           /* Act on the event */
+
+           alert();
+       });
+    });
+
+</script>
+
 @endsection
