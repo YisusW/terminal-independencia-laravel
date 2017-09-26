@@ -104,7 +104,7 @@
                         </div>
                     </form>
 
-                    @if(isset($listinei))
+                    @if(isset ( $listinei ) )
                
                     <hr>
                     <h3 style="text-align: center" >Listín Preparado</h3>
