@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"toA",
+				"toArray"
+			],
+			[
+				"tipo",
+				"tipoListin"
+			],
+			[
+				"desc",
+				"descripcion"
+			],
+			[
+				"listin",
+				"listin_jornada"
+			],
+			[
+				"id_tipo_",
+				"id_tipo_listin_price"
+			],
+			[
 				"tasa",
 				"tasaSalidaUser"
 			],
@@ -23,7 +43,16 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 3821,
+				"buffer_size": 4209,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/ListinTipo/TipoListinJornadaController.php",
+			"settings":
+			{
+				"buffer_size": 5707,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -32,50 +61,33 @@
 			"file": "app/Http/Controllers/ListinTipo/TipoListinPriceController.php",
 			"settings":
 			{
-				"buffer_size": 3626,
+				"buffer_size": 4063,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/TasaSalida/TasaSalidaController.php",
+			"file": "app/TipoListinJornada.php",
 			"settings":
 			{
-				"buffer_size": 4409,
+				"buffer_size": 594,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/TipoListinJornadaPrice.php",
+			"settings":
+			{
+				"buffer_size": 1002,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/ListinTipo/TipoListinController.php",
+			"settings":
+			{
+				"buffer_size": 5282,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/TasaSalida/TasaSalidaUserController.php",
-			"settings":
-			{
-				"buffer_size": 3092,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".env",
-			"settings":
-			{
-				"buffer_size": 525,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/Auth/RegisterController.php",
-			"settings":
-			{
-				"buffer_size": 2499,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/TipoListinPrice.php",
-			"settings":
-			{
-				"buffer_size": 588,
 				"line_ending": "Unix"
 			}
 		}
@@ -140,10 +152,37 @@
 		"/var/www/html/terminal-independencia-laravel/app",
 		"/var/www/html/terminal-independencia-laravel/app/Http",
 		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers",
-		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/Auth"
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/ListinTipo",
+		"/var/www/html/terminal-independencia-laravel/routes"
 	],
 	"file_history":
 	[
+		"/var/www/html/terminal-independencia-laravel/app/TipoListinJornadaPrice.php",
+		"/var/www/html/terminal-independencia-laravel/app/TipoListinJornada.php",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/ListinTipo/TipoListinJornadaController.php",
+		"/var/www/html/terminal-independencia-laravel/public/js/app.js",
+		"/var/www/html/terminal-independencia-laravel/app/ListineCount.php",
+		"/var/www/html/terminal-independencia-laravel/database/Terminal-pg.sql",
+		"/var/www/html/terminal-independencia-laravel/config/app.php",
+		"/var/www/html/terminal-independencia-laravel/.env",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/ListinTipo/TipoListineJornadaController.php",
+		"/var/www/html/terminal-independencia-laravel/app/TasaSalidaUser.php",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/ListinTipo/TipoListinController.php",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/TasaSalida/TasaSalidaController.php",
+		"/root/Desktop/bd_terminal.sql",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/TasaSalida/TasaSalidaCountController.php",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/ListinTipo/TipoListinPriceController.php",
+		"/var/www/html/terminal-independencia-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
+		"/var/www/html/terminal-independencia-laravel/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php",
+		"/var/www/html/terminal-independencia-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RedirectsUsers.php",
+		"/var/www/html/terminal-independencia-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/Auth/RegisterController.php",
+		"/var/www/html/terminal-independencia-laravel/package.json",
+		"/var/www/html/terminal-independencia-laravel/webpack.mix.js",
+		"/var/www/html/terminal-independencia-laravel/artisan",
+		"/var/www/html/terminal-independencia-laravel/app/TipoListinPrice.php",
+		"/var/www/html/terminal-independencia-laravel/routes/web.php",
+		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/TasaSalida/TasaSalidaUserController.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/tasa-salida/pdf/cierre-jornada.blade.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/layouts/user_menu/menu_admin.blade.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/listine/price.blade.php",
@@ -152,16 +191,11 @@
 		"/var/www/html/terminal-independencia-laravel/resources/views/tipo-listine/create.blade.php",
 		"/var/www/html/terminal-independencia-laravel/app/TipoListin.php",
 		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/TasaSalidaController.php",
-		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/Auth/RegisterController.php",
-		"/var/www/html/terminal-independencia-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php",
-		"/var/www/html/terminal-independencia-laravel/app/TipoListinPrice.php",
 		"/var/www/html/terminal-independencia-laravel/app/User.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/tasa-salida/open_jornada.blade.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/tasa-salida/vender.blade.php",
-		"/var/www/html/terminal-independencia-laravel/routes/web.php",
 		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/TasaSalidaUserController.php",
 		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/TasaSalidaCountController.php",
-		"/var/www/html/terminal-independencia-laravel/app/TasaSalidaUser.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/layouts/user_menu/menu_common.blade.php",
 		"/var/www/html/terminal-independencia-laravel/resources/views/tasa-salida/pdf/ticket-salida.blade.php",
 		"/root/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
@@ -169,12 +203,11 @@
 		"/var/www/html/terminal-independencia-laravel/app/Http/Controllers/UsuarioController.php",
 		"/var/www/html/terminal-independencia-laravel/app/TasaSalida.php",
 		"/var/www/html/terminal-independencia-laravel/app/TasaSalidaCount.php",
-		"/var/www/html/terminal-independencia-laravel/config/app.php",
 		"/home/temporal/.config/sublime-text-3/Packages/User/Package Control.sublime-settings"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -188,6 +221,78 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"get_jornada_activa",
+			"id_tipo_listin_price",
+			"null",
+			"id_tipo_listin_price",
+			"NULL",
+			"get_jornada_activa",
+			"validar_jornada",
+			"id_tipo_listin_jornada",
+			"validar_jornada",
+			"array",
+			"listines_jornadas",
+			"ids",
+			"toArray",
+			"listine",
+			"id",
+			"procesar_ajax",
+			"fecha_apertura_jornada",
+			"message",
+			"alert()",
+			"alert",
+			"listine",
+			"-listin",
+			"message",
+			"jornada",
+			"desc",
+			"request",
+			"message",
+			"tipoListin",
+			"validar_update",
+			"update-tipo-listin",
+			"message",
+			"view",
+			"descripcion",
+			"post",
+			"show",
+			"get",
+			"listine_price",
+			"retuir",
+			"listine",
+			"create",
+			"TipoListinJornadaPrice",
+			"tipo_listin_jornada_tipo_listin_price_date",
+			"tipo_listin_jornada_tipo_listin_price",
+			"datos",
+			"message",
+			"tine_tre",
+			"TipoListinJornadaController",
+			"TipoListinJornada",
+			"protected",
+			"tine_two",
+			"tine_one",
+			"numero",
+			"config",
+			"valid",
+			"redirect",
+			"array",
+			"message",
+			"messaje",
+			"login",
+			"adminExist",
+			"validateLogin",
+			"tasa_salida_date",
+			"tasa_salida_date(",
+			"tasa_salida_date( ",
+			"tipo_listin_jornada",
+			"id_tipo_listin_jornada",
+			"tipo_listin_jornada",
+			"id_lsitin_jorndad",
+			"listin_jornada",
+			"tasa_sa",
+			"tasa_salida_date",
+			"tasa_salida_da",
 			"open-jornada",
 			"carbon",
 			"listine"
@@ -208,7 +313,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -217,15 +322,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3821,
+						"buffer_size": 4209,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								248,
+								248
 							]
 						],
 						"settings":
@@ -235,27 +340,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										1843,
-										1844
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										1825,
-										1826
-									]
 								},
 								"unmatched":
 								{
@@ -268,482 +358,82 @@
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
-								"bh_curly_content"
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1231.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/ListinTipo/TipoListinPriceController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3626,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										3519,
-										3520
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										3239,
-										3240
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2965.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Http/Controllers/TasaSalida/TasaSalidaController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4409,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Http/Controllers/TasaSalida/TasaSalidaUserController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3092,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								811,
-								811
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1855,
-										1856
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										790,
-										791
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1175.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": ".env",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 525,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								387,
-								387
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2426.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/Http/Controllers/Auth/RegisterController.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2499,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/TipoListinPrice.php",
+					"buffer": 1,
+					"file": "app/Http/Controllers/ListinTipo/TipoListinJornadaController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 588,
+						"buffer_size": 5707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								402,
-								412
+								5197,
+								5197
 							]
 						],
 						"settings":
@@ -755,8 +445,8 @@
 								{
 									"1":
 									[
-										413,
-										414
+										5209,
+										5210
 									]
 								},
 								"icon":
@@ -771,8 +461,8 @@
 								{
 									"1":
 									[
-										412,
-										413
+										5177,
+										5178
 									]
 								},
 								"unmatched":
@@ -786,41 +476,475 @@
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5562.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/ListinTipo/TipoListinPriceController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3408,
+								3408
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3407,
+										3408
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3406,
+										3407
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4031.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/TipoListinJornada.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 594,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/TipoListinJornadaPrice.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1002,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Http/Controllers/ListinTipo/TipoListinController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5282,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4508,
+										4509
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3647,
+										3648
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -831,21 +955,31 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 38.0,
+						"translation.y": 653.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -853,11 +987,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 35.0
 	},
 	"input":
 	{
-		"height": 71.0
+		"height": 73.0
 	},
 	"layout":
 	{
@@ -890,7 +1024,7 @@
 	"project": "app_backend.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -932,7 +1066,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 248.0,
+	"side_bar_width": 305.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
