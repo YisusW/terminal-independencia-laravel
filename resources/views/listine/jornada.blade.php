@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
     
-                    <div id="message" class="alert alert-info" role="alert" style="display:none">
+                    <div id="message" class="alert alert-success" role="alert" style="display:none">
                         
                     </div>
 
@@ -58,26 +58,11 @@
                                 </select>
 
                                 </div>
-                                @if ($errors->has('tipo_listine'))
+                                @if ($errors->has('listin'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tipo_listine') }}</strong>
+                                        <strong>{{ $errors->first('listin') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="add" class="col-md-4 control-label">Agregar listin</label>
-                            <div class="col-md-6">
-
-                            <button id="add" class="btn btn-success"
-                           
-
-                            type="button" 
-                            onclick="procesar_add()"
-                            title="Asignará el listin seleccionado para la jornada">Agregar</button>
-
-
                             </div>
                         </div>
 
@@ -141,7 +126,10 @@
                 @else 
                     <div class="alert alert-info" role="alert">
                         <strong>Importante!</strong> Para Hacer la apertura de una jornada es necesario hacer las configuraciones necesarias previamente
-                    </div>        
+                    </div>
+                     @if( session('message') )
+                     
+                     @endif
                 @endif
                 @endif
 
@@ -151,53 +139,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-
-   function agregarlistineJornada(listin , token){
-
-    var date = $("#fecha_apertura_jornada").val();
-
-        $.ajax({
-            url  : 'open-jornada-listine',
-            type : 'POST',
-            data : { listin: listin , _token : token , fecha_apertura_jornada : date },
-        })
-        .done(function( response ) {
-            console.log(response);
-            
-            if( response.error ){
-
-                $("#message").fadeOut('slow');
-                $("#error").fadeIn('slow');
-                $("#error").html('<strong>Bien hecho!</strong>'+response.error)
-
-            }else if( response.message )
-
-            { 
-                $("#error").fadeOut('slow');
-                $("#message").fadeIn('slow');
-                $("#message").html('<strong>Bien hecho!</strong>'+response.message)
-
-            }
-        
-
-        })
-        .fail(function(response) {
-            console.log("error");
-        });
-        
-    }
-    function procesar_add () {
-        
-        var token = $('meta[name="csrf-token"]').attr('content');
-        var listin = $("#listin").val();
-        
-        agregarlistineJornada(listin , token);
-    };
-
- 
-
-</script> 
 
 @endsection
 

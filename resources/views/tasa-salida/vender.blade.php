@@ -77,7 +77,7 @@
                     <form action="informe-cierre-jornada" method="POST" accept-charset="utf-8"  target="_blank">
                         {{ csrf_field() }}
                         
-                        <button type="submit" class="btn btn-info" title="Reporte de cierre Jornada">Ver informe Jornada</button>
+                        <button type="submit" class="btn btn-primary" title="Reporte de cierre Jornada">Ver informe Jornada</button>
 
                     </form>    
 

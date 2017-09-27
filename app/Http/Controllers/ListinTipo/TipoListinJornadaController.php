@@ -67,21 +67,33 @@ class TipoListinJornadaController extends Controller
         if( $listine->save() ):
 
             return true;
-        else:
+        endif;
         
             $jornada->destroy();
             return false;
-        endif;
+        
 
     }
 
     protected function validar_jornada( $datos  ){
+
+        $id = $this->get_jornada_activa();
+
+        if ( isset($id) ):
+            $id = $id->id;
+        return Validator::make( $datos , [
+            'listin' => 'required|integer|exists:tipo_listin_price,id|unique:tipo_listin_jornada_tipo_listin_price,id_tipo_listin_price,NULL,id,id_tipo_listin_jornada,'.$id,
+
+            'fecha_apertura_jornada' => 'required|date',
+        ]);
+        endif;
 
         return Validator::make( $datos , [
             'listin' => 'required|integer|exists:tipo_listin_price,id',
 
             'fecha_apertura_jornada' => 'required|date',
         ]);
+
     }
 
 
@@ -92,7 +104,6 @@ class TipoListinJornadaController extends Controller
             $jornada = $this->get_jornada_activa();
 
             if( $this->create( $jornada , (int) $request->listin ) ){
-
 
             $message = 'La Jornada Se Abrió Correctamente';
             return array( 'message' => $message );
@@ -113,13 +124,10 @@ class TipoListinJornadaController extends Controller
             
             return array( 'message' => $message );
 
-        else:
+        endif;
 
             $error = 'La Jornada No se pudo Abrir, ocurrió un error';
             return array( 'error' => $error );
-
-        endif;
-
     }
 
 
@@ -132,15 +140,13 @@ class TipoListinJornadaController extends Controller
     public function store(Request $request)
     {
         //
-
         if( $request->ajax() ){
 
             $resul = (object) $this->function_guardar_jornada_listin( $request );
 
-
-            return response()->json(['response' , $resul ]);
+            return response()->json( $resul );
         }
-        
+
         $validar = $this->validar_jornada( $request->all() );
 
         if( $validar->fails() )          
@@ -155,44 +161,12 @@ class TipoListinJornadaController extends Controller
 
             return redirect('open-jornada-listine')->with(compact('error'));
         
-        elseif( isset($resul->message) ):
+        endif;
 
             $message = $resul->message;
 
             return redirect('open-jornada-listine')->with(compact('message'));
-        endif;
-
-        // if( $this->show( ) ):
-
-        //     $jornada = $this->get_jornada_activa();
-
-        //     if( $this->create( $jornada , (int) $request->listin ) ){
-
-
-        //     $message = 'La Jornada Se Abrió Correctamente';
-        //     return redirect('open-jornada-listine')->with(compact('message'));
-
-        //     }
-
-        // endif;
-
-        // $jornada = new TipoListinJornada;
-
-        // $jornada->id_user = \Auth::user()->id ;
-        // $jornada->description = 'Abierta';
-        // $jornada->fecha = $request->fecha_apertura_jornada;        
-
-        // if( $jornada->save() && $this->create( $jornada , (int) $request->listin ) ):
-            
-        //     $message = 'La Jornada Se Abrió Correctamente';
-        //     return redirect('open-jornada-listine')->with(compact('message'));
-
-        // else:
-
-        //     $error = 'La Jornada No se pudo Abrir, ocurrió un error';
-        //     return redirect('open-jornada-listine')->with(compact('error'));
-
-        // endif;
+        
         
     }   
 
