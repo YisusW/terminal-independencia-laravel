@@ -31,7 +31,7 @@
                         <tr>
                             <th>Usuario</th>
                             <th>Fecha Hora Apertura</th>
-                            <th>Cuenta</th>
+                            <th>Vendidas</th>
                             <th>Precio</th>
                             <th style="text-align: right;">Total Bs.</th>
                             <th>Detalles</th>

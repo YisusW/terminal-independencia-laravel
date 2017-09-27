@@ -69,6 +69,11 @@
 
                         <li><a href="{{ url('open-jornada-listine') }}">Abrir Jornada</a></li>
 
+                        <li><a href="{{ url('jornada-opened-listin') }}">Jornadas Abiertas</a></li>
+
+                        <li><a href="{{ url('jornada-closed-listin') }}">Jornadas Cerradas</a></li>
+
+
                     </ul>                        
                     
                 </li>                 

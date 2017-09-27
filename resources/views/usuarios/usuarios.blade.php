@@ -25,7 +25,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Usuario</th>
                             <th>Nombre</th>
+                            <th>Apellido</th>
                             <th>Fecha Registro</th>
                             <th>Opción</th>
                         </tr>
@@ -40,6 +42,8 @@
                             {{ $key+1 }}
                             </td>
                             <td>{{ $user_indi->name }}</td>
+                            <td>{{ $user_indi->nombre }}</td>
+                            <td>{{ $user_indi->apellido }}</td>
                             <td>{{ $user_indi->created_at->formatLocalized('%A %d %B %Y') }}</td>
                             <td> <a href="{{ url('users/'.$user_indi->id) }}" type="button" class="btn btn-primary">Activar</a> </td>
 

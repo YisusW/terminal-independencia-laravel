@@ -76,10 +76,20 @@
                     @if( isset($jornada) )
 
                     <input type="hidden" name="jorna" value="{{ $jornada->id }}">
-                    
+
                     @endif
 
                 </form>
+
+                @elseif(session('option_reported'))
+
+
+                    <form action="informe-cierre-jornada-listin" method="POST" accept-charset="utf-8"  target="_blank">
+                        {{ csrf_field() }}
+                        
+                        <button type="submit" class="btn btn-primary" title="Reporte de cierre Jornada">Ver informe de Cierre Jornada</button>
+
+                    </form>                 
 
                 @else
                 

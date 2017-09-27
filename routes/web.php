@@ -113,5 +113,11 @@ Route::post('cierre-jornada-listine' , $controllers->tine_tre.'@cerrar_jornada' 
 
 Route::post('contar-listine' , $controllers->tine_fou.'@store' );
 
+Route::post( 'informe-cierre-jornada-listin' , $controllers->tine_fou.'@reporte_informe_cierre' );
 
 
+Route::get( 'jornada-opened-listin' , $controllers->tine_fou.'@index' );
+
+Route::get( 'jornada-closed-listin' , $controllers->tine_fou.'@endindex' );
+
+Route::post( 'informe-cierre-jornada-listine-from-admin' , $controllers->tine_fou.'@admin_reporte_informe_cierre' );

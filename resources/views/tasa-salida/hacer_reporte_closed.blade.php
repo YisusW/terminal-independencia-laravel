@@ -31,7 +31,7 @@
                         <tr>
                             <th>Usuario</th>
                             <th>Fecha Hora Apertura</th>
-                            <th>Cuenta</th>
+                            <th>Vendidas</th>
                             <th>Precio</th>
                             <th style="text-align: right;">Total Bs.</th>
                             <th>Detalles</th>
@@ -43,11 +43,11 @@
                         @foreach( $usuario as $jorn  )
 
                         <tr>
-                            <td>{{ $jorn->user()->get()->first()->name }}</td>
+                            <td>{{ $jorn->user()->get()->first()->nombre .' '. $jorn->user()->get()->first()->apellido }}</td>
                             
                             <td>{{ $jorn->created_at->formatLocalized('%A %d %B %Y') .' '. $jorn->created_at->format('h:i:s A') }}</td>
                             
-                            <td>{{ $jorn->TasaSalidaCount()->get(['id_tasa_salida_date'])->count() }} Tasas</td>
+                            <td>{{ $jorn->TasaSalidaCount()->get(['id_tasa_salida_date'])->count() }}</td>
                             
                             <td>{{ $jorn->tasaSalida()->get()->first()->precio }} Bs.</td>
 

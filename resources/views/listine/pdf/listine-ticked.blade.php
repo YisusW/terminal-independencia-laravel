@@ -68,11 +68,10 @@
               {{ $listin->tipoListin()->get()->first()->descripcion }} - N° {{ $numero }}
             </td>
             
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             
-            <td >TIPO DE LISTIN</td>
+            <td style="text-align: right;">TIPO DE LISTIN</td>
             
-            <th style="border: 1px solid black;" >Bs.{{ str_replace('.00', ',00', $listin->precio) }}</th>
+            <th style="border: 1px solid black;text-align: right;" >Bs.{{ str_replace('.00', ',00', $listin->precio) }}</th>
           </tr>
 
       </table>

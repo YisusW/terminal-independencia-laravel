@@ -61,7 +61,7 @@
 
     <div id="content" style="font-family:sans-serif;">
        
-            <center><h1>INFORME JORNADA CERRADA - TASA SALIDA</h1></center>
+            <center><h1>INFORME JORNADA CERRADA - LISTIN</h1></center>
         <hr>
     	<table style="width: 100% ; 
             border-collapse: separate;  
@@ -72,12 +72,12 @@
     			<tr>
     				<th>Fecha Apertura</th>
     				<th>Hora Apertura</th>
-                    <th>Usuario</th>    				
+                    <th>Nombre Usuario</th>
     			</tr>
                 <tr>
-                    <td>{{ $tasa->created_at->formatLocalized('%A %d %B %Y') }}</td>
-                    <td>{{ $tasa->created_at->format('h:i:s A') }}</td>
-                    <td>{{ $tasa->user()->get()->first()->nombre .' '.$tasa->user()->get()->first()->apellido }}</td>
+                    <td>{{ $datos->created_at->formatLocalized('%A %d %B %Y') }}</td>
+                    <td>{{ $datos->created_at->format('h:i:s A') }}</td>
+                    <td>{{ $datos->user()->get()->first()->nombre .' '. $datos->user()->get()->first()->apellido }}</td>
                 </tr> 
 
                 <tr>
@@ -85,22 +85,34 @@
                     <th>Hora Cierre</th>
                 </tr>
                 <tr>
-                    <td>{{ $tasa->updated_at->formatLocalized('%A %d %B %Y') }}</td>
-                    <td>{{ $tasa->updated_at->format('h:i:s A') }}</td>
+                    <td>{{ $datos->updated_at->formatLocalized('%A %d %B %Y') }}</td>
+                    <td>{{ $datos->updated_at->format('h:i:s A') }}</td>
                 </tr>  
                 {{-- ULTIMA LINEA DE  LA TABLA INFORMACION DE LAS TASAS GENERADAS --}}
+
+            </thead>
+            <tbody>
                 <tr>
-                    <th>Tasas Vendidas</th>
+                    <th>Tipo Listin</th>
                     <th>Precio</th>
+                    <th>Vendidos</th>
                     <th>Total</th>
                 </tr>
 
+                @foreach ($listines_jornada as $element)
                 <tr>
-                    <td>{{ $tasa->TasaSalidaCount()->get(['id_tasa_salida_date'])->count() }}</td>
-                    <td>{{ $tasa->tasaSalida()->get()->first()->precio }} Bs.</td>
-                    <td>{{ $tasa->tasaSalida()->get()->first()->precio * $tasa->TasaSalidaCount()->get(['id_tasa_salida_date'])->count().'.00' }} Bs.</td>
-                </tr>                              
-            </thead>
+                    <td>{{ $element->listine()->get()->first()->tipoListin()->get()->first()->descripcion }}</td>
+                    
+                    <td>{{ str_replace('.00', ',00', $element->listine()->get()->first()->precio) }} Bs.</td>
+                    
+                    <td>{{ $element->ListineCount()->get(['id_tipo_listin_jornada_tipo_listin_price'])->count() }}</td>
+                    
+                    <td>{{ number_format( $element->ListineCount()->get(['id_tipo_listin_jornada_tipo_listin_price'])->count()  * $element->listine()->get()->first()->precio , 2, ',', ' ')  }} Bs.</td>
+                </tr>
+                @endforeach
+  
+
+            </tbody>
     	</table>
     </div>
    	  	

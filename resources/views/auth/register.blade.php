@@ -12,7 +12,7 @@
 
                 @if( isset( $message  ))
                     <div class="alert alert-warning" role="alert">
-                        <strong>Atención!</strong> {{ $message }} 
+                        <strong>Atención!</strong> {{ $message }}
                     </div>
                 @endif
 
@@ -33,9 +33,37 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Nombre</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required >
+
+                                @if ($errors->has('nombre'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('nombre') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Apellido</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="apellido" value="{{ old('apellido') }}" required >
+
+                                @if ($errors->has('apellido'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('apellido') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -49,7 +77,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -57,7 +85,13 @@
                         </div>
 
                         <div class="form-group">
+
+
                             <div class="col-md-6 col-md-offset-4">
+                                <button type="reset" class="btn btn-default">
+				   Cancelar
+                                </button>
+
                                 <button type="submit" class="btn btn-primary">
                                     Registrar
                                 </button>

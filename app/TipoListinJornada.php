@@ -26,5 +26,16 @@ class TipoListinJornada extends Model
 		return $this->hasMany(TipoListinJornadaPrice::class , 'id_tipo_listin_jornada' , 'id');
 	}
 
+	/**
+	 * TipoListinJornada belongs to User.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function user()
+	{
+		// belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)
+		return $this->belongsTo( User::class , 'id_user' , 'id' );
+	}
+
 
 }

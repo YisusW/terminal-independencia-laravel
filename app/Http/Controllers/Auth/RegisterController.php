@@ -56,8 +56,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             
-            'name' => 'required|string|max:255|unique:users,name',  
+            'name'     => 'required|string|max:255|unique:users,name',
+            
+            'nombre'   => 'required|string|max:100',
 
+            'apellido' => 'required|string|max:100',
+            
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -75,6 +79,7 @@ class RegisterController extends Controller
         $privielgies_ = 'A';
 
         $status = 'A';
+
         
         if( $user_admin ){ $privielgies_ = 'S';  $status = 'I'; }
 
@@ -85,6 +90,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
 
             'password' => bcrypt($data['password']),
+
+            'nombre' => $data['nombre'],
+
+            'apellido' => $data['apellido'],
 
             'privilegies' => $privielgies_,
 

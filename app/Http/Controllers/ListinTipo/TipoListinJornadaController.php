@@ -173,8 +173,11 @@ class TipoListinJornadaController extends Controller
     public function cerrar_jornada( Request $request ){
 
         $jorn = TipoListinJornada::where( 'id' , (int) $request->jorna )
+        
         ->where( 'id_user' ,'=', \Auth::user()->id  )
+        
         ->get()
+        
         ->first();
 
         if( $jorn ):
@@ -183,9 +186,11 @@ class TipoListinJornadaController extends Controller
 
             if ( $jorn->update() ):
         
-        $message = 'Bien la jornada Fué Cerrada Correctamente';
+                $message = 'Bien la jornada Fué Cerrada Correctamente';
 
-        return redirect('vender-jornada-listine')->with(compact('message')); 
+                $option_reported = true ;
+
+                return redirect('vender-jornada-listine')->with(compact('message' , 'option_reported')); 
 
             else:
 
@@ -212,7 +217,9 @@ class TipoListinJornadaController extends Controller
     protected function get_jornada_activa(){
 
         return TipoListinJornada::where( 'description' , 'Abierta' )
+        
         ->where( 'id_user' , \Auth::user()->id )
+        
         ->get()->first();
     }
 
